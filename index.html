@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Portafolio</title>
+  <style>
+    :root {
+      --bg-color: #f9f9f9;
+      --text-color: #333;
+      --accent-color: #0077cc;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      padding: 2rem;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      font-weight: 600;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      background-color: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+      transition: transform 0.2s;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .project-image {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+    }
+
+    .project-title {
+      padding: 1rem;
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+
+    @media (max-width: 500px) {
+      header h1 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Mi Portafolio de Aplicaciones Web</h1>
+  </header>
+
+  <main class="portfolio-grid">
+    <!-- Repite esto para cada proyecto -->
+    <a href="./amiga-date-cuenta/index.html" class="project-card">
+      <img src="./amiga-date-cuenta/preview.jpg" alt="Mi Aplicación 1" class="project-image">
+      <div class="project-title">Te ama?</div>
+    </a>
+
+    <a href="./clima-detector/index.html" class="project-card">
+      <img src="./clima-detector/preview.jpg" alt="Mi Aplicación 2" class="project-image">
+      <div class="project-title">Clima Nancy </div>
+    </a>
+
+    <!-- Agrega más tarjetas aquí -->
+  </main>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Te ama?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        input, select {
+            margin: 10px;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Descubre si él realmente te valora</h2>
+    <label>¿Te escribe?
+        <select id="escribe">
+            <option value="si">Sí</option>
+            <option value="a_veces">A veces</option>
+            <option value="no">No</option>
+        </select>
+    </label><br>
+    <label>¿Te dice lo linda que estás?
+        <select id="linda">
+            <option value="si">Sí</option>
+            <option value="a_veces">A veces</option>
+            <option value="no">No</option>
+        </select>
+    </label><br>
+    <label>¿Te da un lugar en su vida?
+        <select id="lugar">
+            <option value="si">Sí</option>
+            <option value="a_veces">A veces</option>
+            <option value="no">No</option>
+        </select>
+    </label><br>
+    <button onclick="verificar()">Verificar</button>
+    <p id="resultado"></p>
+
+    <script>
+        function verificar() {
+            let escribe = document.getElementById('escribe').value;
+            let linda = document.getElementById('linda').value;
+            let lugar = document.getElementById('lugar').value;
+            let resultado = document.getElementById('resultado');
+
+            if (escribe === 'no' || lugar === 'no') {
+                resultado.textContent = "Algo no cuadra, ¡cuidado!";
+            } else if (linda === 'si' && escribe !== 'si' && lugar !== 'si') {
+                resultado.textContent = "No te ilusiones, solo son palabras.";
+            } else if (escribe === 'a_veces' || lugar === 'a_veces') {
+                resultado.textContent = "Hay señales mixtas, analiza bien la situación.";
+            } else {
+                resultado.textContent = "Parece que hay interés genuino, sigue disfrutando.";
+            }
+        }
+    </script>
+</body>
+</html>

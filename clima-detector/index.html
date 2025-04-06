@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Saludo y Clima en Nancy</title>
+  <style>
+    /* CSS: Estilos básicos para la página */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      text-align: center;
+      padding-top: 50px;
+    }
+    #mensaje {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    #clima {
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <!-- HTML: Contenedor para el mensaje de saludo -->
+  <div id="mensaje"></div>
+  <!-- HTML: Contenedor para la información del clima -->
+  <div id="clima"></div>
+  <div id="luna"></div>
+  <script>
+    // JavaScript: Función para determinar el saludo basado en la hora actual
+    function obtenerSaludo() {
+      const ahora = new Date();
+      const hora = ahora.getHours();
+      let saludo;
+
+      if (hora < 12) {
+        saludo = "Buenos días";
+      } else if (hora < 18) {
+        saludo = "Buenas tardes";
+      } else {
+        saludo = "Buenas noches";
+      }
+
+      return saludo;
+    }
+
+    // JavaScript: Función para obtener la temperatura actual en Nancy
+    async function obtenerClima() {
+      const url = "https://api.open-meteo.com/v1/forecast?latitude=48.6921&longitude=6.1844&current_weather=true";
+
+      try {
+        const respuesta = await fetch(url);
+        const datos = await respuesta.json();
+        const temperatura = datos.current_weather.temperature;
+        return `${temperatura}°C`;
+      } catch (error) {
+        console.error("Error al obtener el clima:", error);
+        return "No se pudo obtener la temperatura";
+      }
+    }
+
+    function traducirFaseLunar(faseIngles) {
+  const traducciones = {
+    "New Moon": "Luna Nueva",
+    "Waxing Crescent": "Creciente Iluminante",
+    "First Quarter": "Cuarto Creciente",
+    "Waxing Gibbous": "Gibosa Creciente",
+    "Full Moon": "Luna Llena",
+    "Waning Gibbous": "Gibosa Menguante",
+    "Last Quarter": "Cuarto Menguante",
+    "Waning Crescent": "Menguante Iluminante"
+  };
+  return traducciones[faseIngles] || "Fase desconocida";
+}
+
+    async function obtenerFaseLunar() {
+      const url = "https://api.weatherapi.com/v1/astronomy.json?key=3b870545ed27486c808192344250404&q=Nancy&dt=" + new Date().toISOString().split('T')[0];
+
+      try {
+    const respuesta = await fetch(url);
+    const datos = await respuesta.json();
+    const faseIngles = datos.astronomy.astro.moon_phase;
+    return traducirFaseLunar(faseIngles);
+  } catch (error) {
+    console.error("Error al obtener la fase lunar:", error);
+    return "No se pudo obtener la fase lunar";
+  }
+}
+
+    
+    // JavaScript: Función principal que actualiza el contenido de la página
+    async function actualizarPagina() {
+      const saludo = obtenerSaludo();
+      const temperatura = await obtenerClima();
+      const faseLunar = await obtenerFaseLunar();
+
+      document.getElementById("mensaje").textContent = `${saludo}, bienvenida a Nancy.`;
+      document.getElementById("clima").textContent = `La temperatura actual es de ${temperatura}.`;
+      document.getElementById("luna").textContent = `La fase lunar actual es: ${faseLunar}.`;
+    }
+
+    // Llamar a la función para actualizar la página
+    actualizarPagina();
+  </script>
+</body>
+</html>

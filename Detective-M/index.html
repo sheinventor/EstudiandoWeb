@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dossier M - Le Cas des Abysses</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      background-color: black;
+      color: white;
+      font-family: 'Courier New', Courier, monospace;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .screen {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    button {
+      background-color: transparent;
+      border: 1px solid white;
+      color: white;
+      padding: 0.5rem 1rem;
+      font-size: 1.2rem;
+      margin-top: 2rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: white;
+      color: black;
+    }
+
+    iframe {
+      width: 100vw;
+      height: 100vh;
+      border: none;
+    }
+
+    .bottom-link {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="screen" id="intro">
+    <div>
+      <h2>Présentation en ligne</h2>
+      <p>Cependant, ce court-métrage a été conçu pour être projeté.</p>
+    </div>
+  </div>
+
+  <div class="screen hidden" id="instructions">
+    <div>
+      <p>Pour une expérience optimale :</p>
+      <ul style="text-align: left; max-width: 500px; margin: 0 auto;">
+        <li>Éteignez les lumières</li>
+        <li>Utilisez des écouteurs ou un bon système audio</li>
+        <li>Activez le plein écran</li>
+        <li>Fermez les autres onglets</li>
+      </ul>
+      <button onclick="startVideo()">Commencer la projection</button>
+    </div>
+  </div>
+
+  <div class="hidden" id="videoContainer">
+    <iframe src="https://www.youtube.com/embed/QCIXpIueFTA?si=3NDeBDWXsnLYQ9qj&autoplay=1" allowfullscreen></iframe>
+    <div class="bottom-link">
+      <a href="detectiveM.html" style="color: white; text-decoration: underline;">Connaître plus sur ce cas ici</a>
+    </div>
+  </div>
+
+  <script>
+    // Paso 1: mostrar intro
+    setTimeout(() => {
+      document.getElementById('intro').classList.add('hidden');
+      document.getElementById('instructions').classList.remove('hidden');
+    }, 3000);
+
+    // Paso 2: iniciar video
+    function startVideo() {
+      document.getElementById('instructions').classList.add('hidden');
+      document.getElementById('videoContainer').classList.remove('hidden');
+    }
+  </script>
+
+</body>
+</html>
