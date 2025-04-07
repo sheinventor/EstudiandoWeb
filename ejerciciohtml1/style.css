@@ -1,0 +1,28 @@
+
+li,
+h1 {
+  color: rgb(65, 2, 65);
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+
+mark {
+    background-color: #db24db; /* color de fondo */
+    color: rgb(255, 255, 255);              /* color del texto */
+    font-weight: bold;         /* negritas */
+    padding: 2px 4px;          /* espacio alrededor */
+    border-radius: 100px;        /* bordes redondeados */
+  }
+
+  p {
+    color:black
+    font-family:arial;
+
+
+  }
+
+  #chucho {
+
+
+    color:blue
+  }

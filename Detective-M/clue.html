@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Piste secrète – Cian</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: 'Courier New', Courier, monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      height: 100vh;
+    }
+
+    #clueImage {
+      margin-top: 2rem;
+      width: 200px; /* Ajusta el tamaño de la imagen */
+      display: block;
+    }
+
+    button {
+      margin-top: 1.5rem;
+      padding: 0.8rem 1.5rem;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 10px;
+      background-color: white;
+      color: black;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #ddd;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>🧩 Dossier complémentaire : Cian</h2>
+  <p>Cian, le petit frère de Magenta, aurait découvert quelque chose...<br>
+  Merci de continuer l’enquête avec nous.</p>
+
+  <!-- Imagen que se descargará 
+  <img id="clueImage" src="clue.png" alt="Piste secrète" /> -->
+
+  <button onclick="downloadImage()">Télécharger l'image secrète</button>
+
+  <script>
+    // Función para descargar la imagen clue.png
+    function downloadImage() {
+      const link = document.createElement('a');
+      link.href = 'clue.png';  // Ruta de la imagen en la carpeta
+      link.download = 'clue.png'; // Nombre con el que se descargará
+      link.click();
+    }
+  </script>
+
+</body>
+</html>

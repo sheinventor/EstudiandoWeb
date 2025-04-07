@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dossier M - Le Cas des Abysses</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      background-color: black;
+      color: white;
+      font-family: 'Courier New', Courier, monospace;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .screen {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      padding: 2rem;
+      flex-direction: column;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    button {
+      background-color: transparent;
+      border: 1px solid white;
+      color: white;
+      padding: 0.5rem 1rem;
+      font-size: 1.2rem;
+      margin-top: 2rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: white;
+      color: black;
+    }
+
+    iframe {
+      width: 100vw;
+      height: calc(100vh - 80px);
+      border: none;
+    }
+
+    .bottom-link {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      z-index: 1000;
+    }
+
+    .bottom-link-right {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 100;
+    }
+
+    .top-link {
+      display: none;
+    }
+
+    .top-link a {
+      color: white;
+      text-decoration: underline;
+      font-size: 1rem;
+    }
+
+    #secretButton {
+      background-color: white;
+      color: black;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      margin-top: 2rem;
+      cursor: pointer;
+      border-radius: 10px;
+      transition: background 0.3s;
+    }
+
+    #secretButton:hover {
+      background-color: #ddd;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Pantalla de introducción -->
+  <div class="screen" id="intro">
+    <div>
+      <h2>Présentation en ligne</h2>
+      <p>Cependant, ce court-métrage a été conçu pour être projeté.</p>
+    </div>
+  </div>
+
+  <!-- Instrucciones -->
+  <div class="screen hidden" id="instructions">
+    <div>
+      <p>Pour une expérience optimale :</p>
+      <ul style="text-align: left; max-width: 500px; margin: 0 auto;">
+        <li>Éteignez les lumières</li>
+        <li>Utilisez des écouteurs ou un bon système audio</li>
+        <li>Activez le plein écran</li>
+        <li>Bon plongeon</li>
+      </ul>
+      <button onclick="startVideo()">Commencer la projection</button>
+    </div>
+  </div>
+
+  <!-- Contenedor de video -->
+  <div class="hidden" id="videoContainer">
+    <div id="player"></div>
+
+    <!-- Enlace de regreso -->
+    <div class="bottom-link">
+      <a href="index.html" style="color: white; text-decoration: underline;">← Retour au début</a>
+    </div>
+
+    <!-- Enlace con mensaje emergente -->
+    <div class="bottom-link-right">
+      <a href="#" onclick="showHint()" style="color: white; text-decoration: underline;">Connaître plus sur ce cas ici</a>
+    </div>
+  </div>
+
+<!-- Pista secreta -->
+<div id="secretClue" class="hidden screen">
+    <div>
+      <h2>📍 Piste Secrète</h2>
+      <p>Tu as bien regardé jusqu’à la fin... Prête pour la suite ?</p>
+      <button id="secretButton" class="hidden" onclick="window.location.href='clue.html'">
+        Découvrir la suite →
+      </button>
+    </div>
+  </div>
+
+  <script>
+    // Mostrar instrucciones después de intro
+    setTimeout(() => {
+      document.getElementById('intro').classList.add('hidden');
+      document.getElementById('instructions').classList.remove('hidden');
+    }, 3000);
+
+    let player;
+
+    function startVideo() {
+      document.getElementById('instructions').classList.add('hidden');
+      document.getElementById('videoContainer').classList.remove('hidden');
+
+      // Crear reproductor YouTube
+      if (!player) {
+        player = new YT.Player('player', {
+          height: '100%',
+          width: '100%',
+          videoId: 'QCIXpIueFTA',
+          playerVars: {
+            'autoplay': 1,
+            'controls': 1,
+            'rel': 0,
+            'showinfo': 0,
+            'modestbranding': 1,
+            'playsinline': 1,
+            'vq': 'hd1080',
+            'quality': 'highres'
+          },
+          events: {
+            'onStateChange': onPlayerStateChange
+          }
+        });
+      } else {
+        player.playVideo();
+      }
+    }
+
+    function onPlayerStateChange(event) {
+      if (event.data === YT.PlayerState.ENDED) {
+        document.getElementById('videoContainer').classList.add('hidden');
+        document.getElementById('secretClue').classList.remove('hidden');
+        document.getElementById('secretButton').classList.remove('hidden');
+      }
+    }
+
+    // Mostrar mensaje amigable en el link de "Connaître plus"
+    function showHint() {
+      alert("Petit secret : à la fin de la vidéo, un bouton spécial apparaîtra avec une piste secrète !");
+    }
+
+    // Cargar API de YouTube
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+  </script>
+
+</body>
+</html>

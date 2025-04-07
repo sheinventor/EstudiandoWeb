@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Archives secrètes</title>
+  <style>
+    body {
+      font-family: 'Courier New', Courier, monospace;
+      background-color: #0a0a0a;
+      color: #e0e0e0;
+      background-image: url('papier-texture.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      padding: 2em;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    h1 {
+      text-transform: uppercase;
+      text-align: center;
+    }
+    .doc {
+      margin: 2em 0;
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 1em;
+      border: 1px solid #444;
+    }
+    .doc img {
+      max-width: 100%;
+      margin-bottom: 1em;
+      border: 2px solid #555;
+    }
+    .enigma {
+      margin-top: 2em;
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 1em;
+      border: 1px dashed #666;
+    }
+    .input {
+      margin-top: 1em;
+      padding: 0.5em;
+      width: 100%;
+      font-size: 1em;
+    }
+    .btn {
+      margin-top: 1em;
+      padding: 1em 2em;
+      font-size: 1.1em;
+      background-color: #083b4c;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Archives secrètes</h1>
+    <p>Ces documents ont été récupérés dans les affaires du biologiste disparu. Ouvre l’œil, de nombreux indices s’y cachent...</p>
+
+    <div class="doc">
+      <h2>Document 1 : Rapport scientifique</h2>
+      <img src="preview.png" alt="Document 1">
+      <p><strong>Indice 1 :</strong> Dans ce document, surligne en rouge, on peut lire une lettre : E</p>
+    </div>
+
+    <div class="doc">
+      <h2>Document 2 : Dessin d’une créature marine</h2>
+      <img src="preview.png" alt="Document 2">
+      <p><strong>Indice 2 :</strong> Sur le dessin, un mot commence par “CO”. Quelle émotion provoque-t-il ?</p>
+    </div>
+
+    <div class="doc">
+      <h2>Document 3 : Carte postale</h2>
+      <img src="preview.png" alt="Document 3">
+      <p><strong>Indice 3 :</strong> En bas, un mot écrit à la main contient les lettres “LOGIE”.</p>
+    </div>
+
+    <div class="enigma">
+      <h2>Résous l’énigme</h2>
+      <p>Assemble les morceaux pour trouver le mot-clé et tape-le ici :</p>
+      <input type="text" id="mot" class="input" placeholder="Mot-clé...">
+      <button class="btn" onclick="verifierMot()">Valider</button>
+
+      <div id="message" class="hidden">
+        <p>Bravo ! Tu as trouvé le mot-clé secret : <strong>écologie</strong>.</p>
+        <p>Retourne à la <a href="index.html" style="color:#6ac6ff;">page principale</a> pour continuer ton enquête.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function verifierMot() {
+      const mot = document.getElementById('mot').value.trim().toLowerCase();
+      if (mot === 'ecologie' || mot === 'écologie') {
+        document.getElementById('message').classList.remove('hidden');
+      } else {
+        alert("Ce n'est pas encore le bon mot... Regarde bien les indices !");
+      }
+    }
+  </script>
+</body>
+</html>
