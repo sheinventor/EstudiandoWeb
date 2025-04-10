@@ -3,34 +3,81 @@
 <head>
   <meta charset="UTF-8">
   <title>Saludo y Clima en Nancy</title>
+
+  <!-- Esta línea hace que la página sea adaptable a pantallas pequeñas como celulares -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
-    /* CSS: Estilos básicos para la página */
+    /* Estilos generales del cuerpo de la página */
     body {
+      margin: 0;
+      padding: 20px;
       font-family: Arial, sans-serif;
-      background-color: #f0f0f0;
       text-align: center;
-      padding-top: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 100vh;
+      transition: background-color 1s, color 1s;
     }
-    #mensaje {
-      font-size: 24px;
-      margin-bottom: 20px;
+
+    /* Estilo para el modo día */
+    .modo-dia {
+      background-color: #e3f2fd; /* azul claro */
+      color: #000;
     }
-    #clima {
-      font-size: 20px;
+
+    /* Estilo para el modo noche */
+    .modo-noche {
+      background-color: #0d1b2a; /* azul oscuro casi negro */
+      color: #fff;
+    }
+
+    /* Estilos de los mensajes */
+    #mensaje, #clima, #luna {
+      font-size: 1.5rem;
+      margin: 10px 0;
+    }
+
+    /* Emoji grande */
+    .emoji {
+      font-size: 4rem;
+      margin: 20px 0;
+    }
+
+    /* Para que el contenido se vea bien en pantallas pequeñas */
+    @media (max-width: 600px) {
+      #mensaje, #clima, #luna {
+        font-size: 1.2rem;
+      }
+
+      .emoji {
+        font-size: 3rem;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- HTML: Contenedor para el mensaje de saludo -->
+  <!-- Aquí va el saludo -->
   <div id="mensaje"></div>
-  <!-- HTML: Contenedor para la información del clima -->
+
+  <!-- Aquí va la temperatura actual -->
   <div id="clima"></div>
+
+  <!-- Aquí se mostrará el emoji del clima (sol o luna) -->
+  <div id="emojiClima" class="emoji"></div>
+
+  <!-- Aquí se mostrará la fase lunar en texto -->
   <div id="luna"></div>
+
+  <!-- Aquí se mostrará el emoji de la luna -->
+  <div id="emojiLuna" class="emoji"></div>
+
   <script>
-    // JavaScript: Función para determinar el saludo basado en la hora actual
+    // Esta función nos da un saludo dependiendo de la hora del día
     function obtenerSaludo() {
       const ahora = new Date();
-      const hora = ahora.getHours();
+      const hora = ahora.getHours(); // obtenemos la hora (0 a 23)
       let saludo;
 
       if (hora < 12) {
@@ -44,62 +91,94 @@
       return saludo;
     }
 
-    // JavaScript: Función para obtener la temperatura actual en Nancy
+    // Esta función obtiene el clima actual desde una API gratuita
     async function obtenerClima() {
       const url = "https://api.open-meteo.com/v1/forecast?latitude=48.6921&longitude=6.1844&current_weather=true";
 
       try {
-        const respuesta = await fetch(url);
-        const datos = await respuesta.json();
+        const respuesta = await fetch(url); // pedimos los datos
+        const datos = await respuesta.json(); // los convertimos en JSON
         const temperatura = datos.current_weather.temperature;
-        return `${temperatura}°C`;
+        return `${temperatura}°C`; // devolvemos la temperatura en texto
       } catch (error) {
         console.error("Error al obtener el clima:", error);
-        return "No se pudo obtener la temperatura";
+        return "No disponible";
       }
     }
 
+    // Esta función traduce la fase lunar de inglés a español y agrega un emoji
     function traducirFaseLunar(faseIngles) {
-  const traducciones = {
-    "New Moon": "Luna Nueva",
-    "Waxing Crescent": "Creciente Iluminante",
-    "First Quarter": "Cuarto Creciente",
-    "Waxing Gibbous": "Gibosa Creciente",
-    "Full Moon": "Luna Llena",
-    "Waning Gibbous": "Gibosa Menguante",
-    "Last Quarter": "Cuarto Menguante",
-    "Waning Crescent": "Menguante Iluminante"
-  };
-  return traducciones[faseIngles] || "Fase desconocida";
-}
-
-    async function obtenerFaseLunar() {
-      const url = "https://api.weatherapi.com/v1/astronomy.json?key=3b870545ed27486c808192344250404&q=Nancy&dt=" + new Date().toISOString().split('T')[0];
-
-      try {
-    const respuesta = await fetch(url);
-    const datos = await respuesta.json();
-    const faseIngles = datos.astronomy.astro.moon_phase;
-    return traducirFaseLunar(faseIngles);
-  } catch (error) {
-    console.error("Error al obtener la fase lunar:", error);
-    return "No se pudo obtener la fase lunar";
-  }
-}
-
-    
-    // JavaScript: Función principal que actualiza el contenido de la página
-    async function actualizarPagina() {
-      const saludo = obtenerSaludo();
-      const temperatura = await obtenerClima();
-      const faseLunar = await obtenerFaseLunar();
-
-      document.getElementById("mensaje").textContent = `${saludo}, bienvenida a Nancy.`;
-      document.getElementById("clima").textContent = `La temperatura actual es de ${temperatura}.`;
-      document.getElementById("luna").textContent = `La fase lunar actual es: ${faseLunar}.`;
+      const traducciones = {
+        "New Moon": "Luna Nueva 🌑",
+        "Waxing Crescent": "Creciente Iluminante 🌒",
+        "First Quarter": "Cuarto Creciente 🌓",
+        "Waxing Gibbous": "Gibosa Creciente 🌔",
+        "Full Moon": "Luna Llena 🌕",
+        "Waning Gibbous": "Gibosa Menguante 🌖",
+        "Last Quarter": "Cuarto Menguante 🌗",
+        "Waning Crescent": "Menguante Iluminante 🌘"
+      };
+      return traducciones[faseIngles] || "Fase desconocida 🌚";
     }
 
-    // Llamar a la función para actualizar la página
+    // Esta función obtiene la fase lunar de una API
+    async function obtenerFaseLunar() {
+      // Usamos la fecha actual en formato YYYY-MM-DD
+      const fecha = new Date().toISOString().split('T')[0];
+      const url = `https://api.weatherapi.com/v1/astronomy.json?key=3b870545ed27486c808192344250404&q=Nancy&dt=${fecha}`;
+
+      try {
+        const respuesta = await fetch(url);
+        const datos = await respuesta.json();
+        const faseIngles = datos.astronomy.astro.moon_phase;
+        return traducirFaseLunar(faseIngles); // la traducimos
+      } catch (error) {
+        console.error("Error al obtener la fase lunar:", error);
+        return "No disponible 🌚";
+      }
+    }
+
+    // Esta función cambia el fondo según la hora
+    function cambiarModoVisual(hora) {
+      const cuerpo = document.body;
+
+      if (hora >= 6 && hora < 18) {
+        cuerpo.classList.add("modo-dia");
+        cuerpo.classList.remove("modo-noche");
+        return "☀️"; // emoji de sol
+      } else {
+        cuerpo.classList.add("modo-noche");
+        cuerpo.classList.remove("modo-dia");
+        return ""; 
+      }
+    }
+
+    // Esta es la función principal que actualiza todo en la página
+    async function actualizarPagina() {
+      const hora = new Date().getHours(); // obtenemos la hora actual
+      const saludo = obtenerSaludo(); // generamos el saludo
+      const temperatura = await obtenerClima(); // obtenemos el clima
+      const faseLunar = await obtenerFaseLunar(); // obtenemos la luna
+      const emojiClima = cambiarModoVisual(hora); // cambiamos el modo visual y guardamos el emoji
+
+      // Escribimos el saludo
+      document.getElementById("mensaje").textContent = `${saludo}, bienvenida a Nancy.`;
+
+      // Escribimos la temperatura
+      document.getElementById("clima").textContent = `La temperatura actual es: ${temperatura}`;
+
+      // Mostramos el emoji (☀️ o 🌙)
+      document.getElementById("emojiClima").textContent = emojiClima;
+
+      // Escribimos la fase lunar con emoji
+      document.getElementById("luna").textContent = `Fase lunar actual: ${faseLunar}`;
+
+      // Mostramos solo el emoji lunar (último carácter del texto)
+      const emojiLuna = faseLunar.slice(-2);
+      document.getElementById("emojiLuna").textContent = emojiLuna;
+    }
+
+    // Llamamos a la función cuando la página se carga
     actualizarPagina();
   </script>
 </body>
