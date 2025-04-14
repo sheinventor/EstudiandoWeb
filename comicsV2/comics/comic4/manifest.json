@@ -1,0 +1,13 @@
+{
+    "title": "Otro Comic",
+    "pages": 3,
+    "dialogs": [
+      { "page": 1, "lang": "en", "x": 50, "y": 20, "text": "", "track": "3M1H1CWjrSq7nxABHc8EXv" },
+      { "page": 1, "lang": "fr", "x": 50, "y": 20, "text": "", "track": "3M1H1CWjrSq7nxABHc8EXv" },
+      { "page": 1, "lang": "es", "x": 50, "y": 20, "text": "", "track": "3M1H1CWjrSq7nxABHc8EXv" }
+  
+
+
+    ]
+  }
+  

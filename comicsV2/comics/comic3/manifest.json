@@ -1,0 +1,20 @@
+{
+    "title": "Mi primer cómic",
+    "pages": 3,
+    "dialogs": [
+      { "page": 1, "lang": "en", "x": 50, "y": 20, "text": "I was used to loose flowers in my garden", "track": "1xhWXmGYDYNhbWXIrZvhDU" },
+      { "page": 1, "lang": "fr", "x": 50, "y": 20, "text": "J'avais l'habitude de perdre des fleurs dans mon jardin", "track": "1xhWXmGYDYNhbWXIrZvhDU" },
+      { "page": 1, "lang": "es", "x": 50, "y": 20, "text": "Estaba acostumbrada a perder flores en mi jardín", "track": "1xhWXmGYDYNhbWXIrZvhDU" },
+  
+      { "page": 2, "lang": "en", "x": 50, "y": 20, "text": "I didn't care much they were often rejected" },
+      { "page": 2, "lang": "fr", "x": 50, "y": 20, "text": "Je me souciais peu qu'elles soient souvent rejetées" },
+      { "page": 2, "lang": "es", "x": 50, "y": 20, "text": "No me importaba mucho que fueran a menudo rechazadas" },
+  
+      { "page": 3, "lang": "en", "x": 20, "y": 20, "text": "But then, a short anomaly happened" },
+      { "page": 3, "lang": "fr", "x": 20, "y": 20, "text": "Mais ensuite, une petite anomalie s'est produite" },
+      { "page": 3, "lang": "es", "x": 50, "y": 20, "text": "Pero luego, ocurrió una pequeña anomalía" }
+  
+
+    ]
+  }
+  

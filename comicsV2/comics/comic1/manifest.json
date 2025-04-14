@@ -1,0 +1,25 @@
+{
+  "title": "Emanuel",
+  "pages": 5,
+  "dialogs": [
+    { "page": 1, "lang": "en", "x": 50, "y": 10, "text": "There are memories that shape lives.", "track": "0X2cpcCTlr30I5bkIp6nN5" },
+    { "page": 1, "lang": "fr", "x": 50, "y": 10, "text": "Il y a des souvenirs qui marquent des vies.", "track": "0X2cpcCTlr30I5bkIp6nN5" },
+    { "page": 1, "lang": "es", "x": 50, "y": 10, "text": "Hay recuerdos que marcan vidas.","track": "0X2cpcCTlr30I5bkIp6nN5" },
+
+    { "page": 1, "lang": "en", "x": 80, "y": 60, "text": "At 6 years old, with a bowl haircut."},
+    { "page": 1, "lang": "fr", "x": 80, "y": 60, "text": "À 6 ans, avec une coupe au bol." },
+    { "page": 1, "lang": "es", "x": 80, "y": 60, "text": "A mis 6 años, con corte de cabello tipo de honguito." },
+
+    { "page": 2, "lang": "en", "x": 50, "y": 10, "text": "And doing science experiments with my cousin was one of them." },
+    { "page": 2, "lang": "fr", "x": 50, "y": 10, "text": "Faire des expériences scientifiques avec mon cousin en faisait partie." },
+    { "page": 2, "lang": "es", "x": 50, "y": 10, "text": "Y hacer experimentos de ciencia con mi primo fue uno de ellos." },
+
+    { "page": 3, "lang": "en", "x": 50, "y": 10, "text": "It wasn't 'science', it was magic"},
+    { "page": 3, "lang": "fr", "x": 50, "y": 10, "text": "Ce n'était pas de la « science », c'était de la magie" },
+    { "page": 3, "lang": "es", "x": 50, "y": 10, "text": "No era “ciencia”, era magia" },
+
+    { "page": 4, "lang": "en", "x": 50, "y": 10, "text": "magic that I carry with me to this day" },
+    { "page": 4, "lang": "fr", "x": 50, "y": 10, "text": "magie que je porte encore avec moi aujourd'hui" },
+    { "page": 4, "lang": "es", "x": 50, "y": 10, "text": "magia que hoy llevo conmigo" }
+  ]
+}
