@@ -1,6 +1,6 @@
 {
     "title": "Mi primer cómic",
-    "pages": 6,
+    "pages": 7,
     "dialogs": [
       { "page": 1, "lang": "en", "x": 50, "y": 20, "text": "I was used to loose flowers in my garden", "track": "1xhWXmGYDYNhbWXIrZvhDU" },
       { "page": 1, "lang": "fr", "x": 50, "y": 20, "text": "J'avais l'habitude de perdre des fleurs dans mon jardin", "track": "1xhWXmGYDYNhbWXIrZvhDU" },

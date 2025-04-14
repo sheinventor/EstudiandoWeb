@@ -1,6 +1,6 @@
 {
   "title": "Emanuel",
-  "pages": 5,
+  "pages": 6,
   "dialogs": [
     { "page": 1, "lang": "en", "x": 50, "y": 10, "text": "There are memories that shape lives.", "track": "0X2cpcCTlr30I5bkIp6nN5" },
     { "page": 1, "lang": "fr", "x": 50, "y": 10, "text": "Il y a des souvenirs qui marquent des vies.", "track": "0X2cpcCTlr30I5bkIp6nN5" },
