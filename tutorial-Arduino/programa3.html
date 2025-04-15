@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tutoriel Arduino - Installation et Projet</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa;
+      color: #333;
+    }
+    header {
+      background-color: #282c34;
+      color: white;
+      padding: 1rem 2rem;
+      text-align: center;
+    }
+    .nav-bar {
+      background-color: #0077cc;
+      padding: 1rem 0;
+      text-align: center;
+    }
+    .nav-bar a {
+      color: white;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: bold;
+    }
+    .nav-bar a:hover {
+      text-decoration: underline;
+    }
+    main {
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+    }
+    .step {
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      display: none; /* Ocultar las etapas por defecto */
+    }
+    .step.active {
+      display: block; /* Solo mostramos la etapa activa */
+    }
+    .step h2 {
+      color: #0077cc;
+    }
+    .step ul {
+      padding-left: 20px;
+    }
+    .step p {
+      margin-top: 0;
+    }
+    .step .tag {
+      background-color: #0077cc;
+      color: white;
+      padding: 0.25rem 0.5rem;
+      font-size: 0.9rem;
+      border-radius: 5px;
+    }
+    .button {
+      background-color: #0077cc;
+      color: white;
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      border-radius: 5px;
+      display: inline-block;
+      margin-top: 1rem;
+    }
+    .button:hover {
+      background-color: #005fa3;
+    }
+    /* Estilos adicionales para la navegación */
+    .step-nav {
+      padding: 10px 20px;
+      color: white;
+      background-color: #555;
+      margin: 0 5px;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+    .step-nav.active {
+      background-color: #4CAF50;
+    }
+    #navigation {
+      margin-top: 20px;
+    }
+    #navigation button {
+      padding: 10px 20px;
+      margin: 5px;
+      border: none;
+      background-color: #4CAF50;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+    #navigation button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Installation et Projet Arduino</h1>
+    <p>Suivez les étapes et revenez à un point spécifique à tout moment !</p>
+  </header>
+
+  <!-- Barra de navegación -->
+  <div class="nav-bar">
+    <span class="step-nav" onclick="navigateToStep(1)">⚙️ Installer Arduino</span>
+    <span class="step-nav" onclick="navigateToStep(2)">🔌 Connecter la carte</span>
+    <span class="step-nav" onclick="navigateToStep(3)">🧩 Driver CH340</span>
+    <span class="step-nav" onclick="navigateToStep(4)">🧱 Bibliothèques nécessaires</span>
+    <span class="step-nav" onclick="navigateToStep(5)">🔧 Matériel nécessaire</span>
+    <span class="step-nav" onclick="navigateToStep(6)">⚡ Connexion des composants</span>
+    <span class="step-nav" onclick="navigateToStep(7)">💻 Programmer un exemple</span>
+  </div>
+
+  <main>
+    <!-- Etapas -->
+    <div class="step" id="step1">
+      <span class="tag">Tutorial</span>
+      <h2>⚙️ Installer le logiciel Arduino (IDE)</h2>
+      <ol>
+        <li>Va sur le site officiel : <a href="https://www.arduino.cc/en/software" target="_blank">https://www.arduino.cc/en/software</a></li>
+        <li>Télécharge la version pour **Windows**, **Mac** ou **Linux** selon ton ordinateur.</li>
+        <li>Installe le logiciel (suis les étapes par défaut et accepte les drivers quand on te le propose).</li>
+        <li>Ouvre le logiciel Arduino.</li>
+      </ol>
+      <a class="button" href="javascript:void(0)" onclick="navigateToStep(2)">Suivant: Connecter la carte Arduino</a>
+
+    </div>
+
+    <div class="step" id="step2">
+      <span class="tag">Tutorial</span>
+      <h2>🔌 Connecter la carte Arduino</h2>
+      <ol>
+        <li>Branche la carte Arduino à ton ordinateur avec un câble USB.</li>
+        <li>Dans le logiciel Arduino :
+          <ul>
+            <li>Va dans **Outils > Type de carte** et choisis **Arduino Uno** (ou le modèle que tu utilises).</li>
+            <li>Ensuite, dans **Outils > Port**, choisis le port COM qui apparaît (ex : COM3).</li>
+          </ul>
+        </li>
+      </ol>
+      <a class="button" href="javascript:void(0)" onclick="navigateToStep(1)">Retour: Installation Arduino</a>
+      <a class="button" href="javascript:void(0)" onclick="navigateToStep(3)">Suivant: Installer le driver CH340</a>
+
+    </div>
+
+    <div class="step" id="step3">
+      <span class="tag">Explication</span>
+      <h2>🧩 Pourquoi installer le driver CH340 ?</h2>
+      <p>Pour les clones Arduino, il faut installer le driver CH340 si la carte n’est pas détectée.<br>
+        - Windows : <a href="https://sparks.gogo.co.nz/assets/_site_/downloads/CH34x_Install_Windows_v3_4.zip">télécharger ici</a><br>
+        - Mac : <a href="https://github.com/adrianmihalko/ch340g-ch34g-ch34x-mac-os-x-driver">driver GitHub</a></p>
+      <a class="button" href="javascript:void(0)" onclick="navigateToStep(2)">Retour: Connecter la carte</a>
+      <a class="button" href="javascript:void(0)" onclick="navigateToStep(4)">Suivant: Bibliothèques nécessaires</a>
+      
+
+    </div>
+
+    <div class="step" id="step4">
+      <span class="tag">Tutorial</span>
+      <h2>🧱 Installer les bibliothèques nécessaires</h2>
+      <p>Pour utiliser un servomoteur :</p>
+      <ol>
+        <li>Va dans le menu **Croquis > Inclure une bibliothèque > Gérer les bibliothèques...**</li>
+        <li>Recherche **Servo** et installe la bibliothèque officielle "Servo" d’Arduino.</li>
+      </ol>
+      <a class="button" href="javascript:void(0)" onclick="navigateToStep(3)">Retour: Driver CH340</a>
+      <a class="button" href="javascript:void(0)" onclick="navigateToStep(5)">Suivant: Matériel nécessaire</a>
+      
+    </div>
+
+    <div class="step" id="step5">
+      <span class="tag">Reference</span>
+      <h2>🔧 Matériel nécessaire pour le projet</h2>
+      <p>Liste des composants nécessaires pour le projet Arduino (débutant) :</p>
+      <table>
+        <tr>
+          <th>Élément</th>
+          <th>Quantité</th>
+          <th>Notes importantes</th>
+        </tr>
+        <tr>
+          <td>Carte Arduino UNO</td>
+          <td>1</td>
+          <td>Compatible avec le logiciel Arduino</td>
+        </tr>
+        <!-- Continúa con el resto de los componentes -->
+      </table>
+      <a class="button" href="javascript:void(0)" onclick="navigateToStep(4)">Retour: Bibliothèques</a>
+      <a class="button" href="javascript:void(0)" onclick="navigateToStep(6)">Suivant: Connexion des composants</a>
+      
+    </div>
+
+    <!-- Agrega esto al final del <main> después de step5 -->
+
+<div class="step" id="step6">
+    <span class="tag">Hardware</span>
+    <h2>⚡ Connexion des composants</h2>
+  
+    <h3>✅ LED</h3>
+    <ul>
+      <li><strong>+ (longue patte)</strong> → résistance 220 ohms → <strong>D2 (Arduino)</strong></li>
+      <li><strong>– (courte patte)</strong> → <strong>GND (Arduino)</strong></li>
+    </ul>
+  
+    <h3>✅ Bouton</h3>
+    <ul>
+      <li>Une patte → <strong>5V</strong></li>
+      <li>Autre patte → <strong>D3 (Arduino)</strong> + résistance 10kΩ vers <strong>GND</strong></li>
+    </ul>
+  
+    <h3>✅ Servomoteur SG90</h3>
+    <ul>
+      <li>Marron → GND</li>
+      <li>Rouge → 5V</li>
+      <li>Orange → D9</li>
+    </ul>
+  
+    <h3>✅ Moteurs DC via <code>L298N</code></h3>
+    <ul>
+      <li>IN1 → D5</li>
+      <li>IN2 → D6</li>
+      <li>ENA/ENB → reliés à 5V</li>
+      <li>GND du L298N → GND Arduino</li>
+      <li>Alimentation du L298N : pile 9V dans le connecteur VIN du module</li>
+    </ul>
+  
+    <h3>🔋 À propos de l'alimentation</h3>
+    <ul>
+      <li>L’Arduino seul peut être alimenté par USB</li>
+      <li>Pour alimenter les moteurs DC : pile 9V ou pack de piles AA (6x1.5V)</li>
+      <li><strong>Toujours connecter les masses (GND)</strong> entre l’Arduino et le module L298N</li>
+    </ul>
+  
+    <a class="button" href="javascript:void(0)" onclick="navigateToStep(5)">Retour: Matériel</a>
+    <a class="button" href="javascript:void(0)" onclick="navigateToStep(7)">Suivant: Programmer un exemple</a>
+    
+  </div>
+  
+  <div class="step" id="step7">
+    <span class="tag">Code</span>
+    <h2>💻 Programmer un exemple simple</h2>
+    <p>Ouvre l'IDE Arduino et colle ce code :</p>
+  
+    <pre><code>
+  // On inclut la bibliothèque pour contrôler le servomoteur
+  #include &lt;Servo.h&gt;  // Permet d’utiliser la fonction .attach() et .write()
+  
+  // --- Déclaration des objets et variables ---
+  Servo monServo;     // Crée un objet "monServo" pour contrôler le servomoteur
+  int bouton = 3;     // Le bouton est connecté à la broche digitale D3
+  int led = 2;        // La LED est connectée à la broche D2
+  int moteur1 = 5;    // Le moteur 1 est contrôlé via la broche D5 (IN1 sur le L298N)
+  int moteur2 = 6;    // Le moteur 2 est contrôlé via la broche D6 (IN2 sur le L298N)
+  
+  void setup() {
+    pinMode(bouton, INPUT);
+    pinMode(led, OUTPUT);
+    pinMode(moteur1, OUTPUT);
+    pinMode(moteur2, OUTPUT);
+  
+    monServo.attach(9); // Le servomoteur est connecté à D9
+  }
+  
+  void loop() {
+    if (digitalRead(bouton) == HIGH) {
+      digitalWrite(led, HIGH);
+      digitalWrite(moteur1, HIGH);
+      digitalWrite(moteur2, LOW);
+      monServo.write(90); // Tourner le servomoteur à 90°
+      delay(1000);
+      digitalWrite(led, LOW);
+      digitalWrite(moteur1, LOW);
+      digitalWrite(moteur2, LOW);
+      monServo.write(0); // Retour à 0°
+    }
+  }
+    </code></pre>
+  
+    <p>✔️ Ce code fait clignoter une LED, active un moteur et fait tourner le servomoteur quand tu appuies sur le bouton.</p>
+    <a class="button" href="javascript:void(0)" onclick="navigateToStep(6)">Retour: Connexion des composants</a>
+
+  </div>
+  
+
+  </main>
+
+  <script>
+    let currentStep = 1;
+    const totalSteps = 7; // Total de etapas disponibles
+
+    // Función para mostrar la etapa correspondiente
+    function navigateToStep(step) {
+      // Ocultar la etapa actual
+      document.querySelectorAll('.step').forEach((el) => {
+        el.classList.remove('active');
+      });
+
+      // Mostrar la nueva etapa
+      document.getElementById(`step${step}`).classList.add('active');
+
+      // Actualizar barra de navegación
+      updateNavBar(step);
+    }
+
+    // Actualizar la barra de navegación
+    function updateNavBar(step) {
+      const navItems = document.querySelectorAll('.step-nav');
+      navItems.forEach((item, index) => {
+        if (index === step - 1) {
+          item.classList.add('active');
+        } else {
+          item.classList.remove('active');
+        }
+      });
+    }
+
+    // Iniciar en la primera etapa
+    navigateToStep(currentStep);
+  </script>
+
+</body>
+</html>

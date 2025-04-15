@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tutoriel Arduino - Installation et Projet</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa;
+      color: #333;
+    }
+    header {
+      background-color: #282c34;
+      color: white;
+      padding: 1rem 2rem;
+      text-align: center;
+    }
+    .nav-bar {
+      background-color: #0077cc;
+      padding: 1rem 0;
+      text-align: center;
+    }
+    .nav-bar a {
+      color: white;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: bold;
+    }
+    .nav-bar a:hover {
+      text-decoration: underline;
+    }
+    main {
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+    }
+    .step {
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    .step h2 {
+      color: #0077cc;
+    }
+    .step ul {
+      padding-left: 20px;
+    }
+    .step p {
+      margin-top: 0;
+    }
+    .step .tag {
+      background-color: #0077cc;
+      color: white;
+      padding: 0.25rem 0.5rem;
+      font-size: 0.9rem;
+      border-radius: 5px;
+    }
+    .button {
+      background-color: #0077cc;
+      color: white;
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      border-radius: 5px;
+      display: inline-block;
+      margin-top: 1rem;
+    }
+    .button:hover {
+      background-color: #005fa3;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Installation et Projet Arduino</h1>
+    <p>Suivez les étapes et revenez à un point spécifique à tout moment !</p>
+  </header>
+
+  <div class="nav-bar">
+    <a href="#step1">⚙️ Installer Arduino</a>
+    <a href="#step2">🔌 Connecter la carte</a>
+    <a href="#step3">🧩 Driver CH340</a>
+    <a href="#step4">🧱 Bibliothèques nécessaires</a>
+    <a href="#step5">🔧 Matériel nécessaire</a>
+    <a href="#step6">⚡ Connexion des composants</a>
+    <a href="#step7">💻 Programmer un exemple</a>
+  </div>
+
+  <main>
+    <div class="step" id="step1">
+      <span class="tag">Tutorial</span>
+      <h2>⚙️ Installer le logiciel Arduino (IDE)</h2>
+      <ol>
+        <li>Va sur le site officiel : <a href="https://www.arduino.cc/en/software" target="_blank">https://www.arduino.cc/en/software</a></li>
+        <li>Télécharge la version pour **Windows**, **Mac** ou **Linux** selon ton ordinateur.</li>
+        <li>Installe le logiciel (suis les étapes par défaut et accepte les drivers quand on te le propose).</li>
+        <li>Ouvre le logiciel Arduino.</li>
+      </ol>
+      <a class="button" href="#step2">Suivant: Connecter la carte Arduino</a>
+    </div>
+
+    <div class="step" id="step2">
+      <span class="tag">Tutorial</span>
+      <h2>🔌 Connecter la carte Arduino</h2>
+      <ol>
+        <li>Branche la carte Arduino à ton ordinateur avec un câble USB.</li>
+        <li>Dans le logiciel Arduino :
+          <ul>
+            <li>Va dans **Outils > Type de carte** et choisis **Arduino Uno** (ou le modèle que tu utilises).</li>
+            <li>Ensuite, dans **Outils > Port**, choisis le port COM qui apparaît (ex : COM3).</li>
+          </ul>
+        </li>
+      </ol>
+      <a class="button" href="#step3">Suivant: Installer le driver CH340</a>
+    </div>
+
+    <div class="step" id="step3">
+      <span class="tag">Explication</span>
+      <h2>🧩 Pourquoi installer le driver CH340 ?</h2>
+      <p>Certaines cartes Arduino (souvent les versions "clones") utilisent une puce appelée **CH340** pour communiquer avec ton ordinateur via USB. Sans ce driver, l’ordinateur ne reconnaît pas la carte Arduino.</p>
+      <a class="button" href="#step4">Suivant: Bibliothèques nécessaires</a>
+    </div>
+
+    <div class="step" id="step4">
+      <span class="tag">Tutorial</span>
+      <h2>🧱 Installer les bibliothèques nécessaires</h2>
+      <p>Pour utiliser un servomoteur :</p>
+      <ol>
+        <li>Va dans le menu **Croquis > Inclure une bibliothèque > Gérer les bibliothèques...**</li>
+        <li>Recherche **Servo** et installe la bibliothèque officielle "Servo" d’Arduino.</li>
+      </ol>
+      <a class="button" href="#step5">Suivant: Matériel nécessaire</a>
+    </div>
+
+    <div class="step" id="step5">
+      <span class="tag">Reference</span>
+      <h2>🔧 Matériel nécessaire pour le projet</h2>
+      <p>Liste des composants nécessaires pour le projet Arduino (débutant) :</p>
+      <table>
+        <tr>
+          <th>Élément</th>
+          <th>Quantité</th>
+          <th>Notes importantes</th>
+        </tr>
+        <tr>
+          <td>Carte Arduino UNO</td>
+          <td>1</td>
+          <td>Compatible avec le logiciel Arduino</td>
+        </tr>
+        <!-- Continúa con el resto de los componentes -->
+      </table>
+      <a class="button" href="#step6">Suivant: Connexion des composants</a>
+    </div>
+
+    <!-- Agrega los siguientes pasos como el mismo formato -->
+
+  </main>
+
+</body>
+</html>

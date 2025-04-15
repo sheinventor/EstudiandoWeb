@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Arduino pour Débutants - Documentation</title>
+  <style>
+    nav ul { list-style: none; padding-left: 0; }
+    nav li { margin: 0.3em 0; }
+  </style>
+</head>
+<body>
+  <h1>📚 Arduino pour Débutants</h1>
+
+  <nav>
+    <h2>📑 Table des matières</h2>
+    <ul>
+        <h3>🧑‍🏫 Tutoriels (Apprendre étape par étape)</h3>
+        <ul>
+          <li><a href="#installer-ide">⚙️ Installer le logiciel Arduino IDE</a></li>
+          <li><a href="#connecter-carte">🔌 Connecter la carte Arduino</a></li>
+          <li><a href="#installer-bibliotheques">📦 Installer les bibliothèques nécessaires</a></li>
+          <li><a href="#circuit-composants">🧱 Monter le circuit : LED, bouton, moteurs, servo</a></li>
+          <li><a href="#premier-programme">💻 Écrire ton premier programme Arduino</a></li>
+          <li><a href="#envoyer-code">📤 Envoyer le code à la carte</a></li>
+          <li><a href="#resultat-attendu">✅ Résultat attendu</a></li>
+        </ul>
+      
+        <h3>🛠️ Guides pratiques (Comment faire ?)</h3>
+        <ul>
+          <li><a href="#driver-ch340">🧩 Comment installer le driver CH340</a></li>
+          <li><a href="#moteur-sens">🔁 Comment changer le sens d’un moteur DC (L298N)</a></li>
+          <li><a href="#vitesse-pwm">⚡ Comment contrôler la vitesse avec PWM</a></li>
+          <li><a href="#servo-position">🔄 Comment positionner un servomoteur</a></li>
+          <li><a href="#alimentation">🧪 Comment alimenter les moteurs correctement</a></li>
+        </ul>
+      
+        <h3>📖 Référence (Consultation rapide)</h3>
+        <ul>
+          <li><a href="#tableau-connexions">🧠 Tableau des connexions (résumé)</a></li>
+          <li><a href="#commandes-arduino">⌨️ Commandes essentielles Arduino</a>
+            <ul>
+              <li><a href="#digitalwrite">digitalWrite()</a></li>
+              <li><a href="#analogwrite">analogWrite()</a></li>
+              <li><a href="#servo-write">Servo.write()</a></li>
+            </ul>
+          </li>
+          <li><a href="#tableau-actions">🔍 Tableau résumé : code par action</a></li>
+        </ul>
+      
+        <h3>💡 Explications (Contexte et concepts)</h3>
+        <ul>
+          <li><a href="#pourquoi-driver">🧩 Pourquoi installer le driver CH340 ?</a></li>
+          <li><a href="#alimentation-separee">🔋 Différences entre alimentation Arduino et moteurs</a></li>
+          <li><a href="#pwm">🎚️ Qu’est-ce que le PWM ?</a></li>
+          <li><a href="#masse-commune">🌐 Pourquoi relier les GND ?</a></li>
+        </ul>
+  </nav>
+
+  <h3 id="installer-ide">⚙️ Installer le logiciel Arduino IDE</h3>
+  <p>1. Va sur le site officiel : <a href="https://www.arduino.cc/en/software">arduino.cc</a><br>
+  2. Télécharge la version selon ton système (Windows, Mac ou Linux).<br>
+  3. Installe et accepte les drivers si demandés.<br>
+  4. Lance le logiciel Arduino.</p>
+
+  <h3 id="connecter-carte">🔌 Connecter la carte Arduino</h3>
+  <p>1. Branche la carte avec un câble USB.<br>
+  2. Dans Arduino IDE, sélectionne la carte (ex: Arduino Uno) et le port (ex: COM3).</p>
+
+  <h3 id="installer-bibliotheques">📦 Installer les bibliothèques nécessaires</h3>
+  <p>Va dans <strong>Croquis > Inclure une bibliothèque > Gérer les bibliothèques</strong>.<br>
+  Rechercher <strong>Servo</strong> et installer la bibliothèque officielle.</p>
+
+  <h3 id="circuit-composants">🧱 Monter le circuit : LED, bouton, moteurs, servo</h3>
+  <p>Connecte les composants selon le tableau de connexions. Voir schéma ci-dessous :</p>
+  <img src="/preview.jpg" alt="Montage des composants">
+
+  <h3 id="premier-programme">💻 Écrire ton premier programme Arduino</h3>
+  <pre><code>#include &lt;Servo.h&gt;
+Servo monServo;
+int bouton = 3;
+int led = 2;
+int moteur1 = 5;
+int moteur2 = 6;
+
+void setup() {
+  pinMode(bouton, INPUT);
+  pinMode(led, OUTPUT);
+  pinMode(moteur1, OUTPUT);
+  pinMode(moteur2, OUTPUT);
+  monServo.attach(9);
+}
+
+void loop() {
+  if (digitalRead(bouton) == HIGH) {
+    digitalWrite(led, HIGH);
+    digitalWrite(moteur1, HIGH);
+    digitalWrite(moteur2, HIGH);
+    monServo.write(90);
+    delay(1000);
+  } else {
+    digitalWrite(led, LOW);
+    digitalWrite(moteur1, LOW);
+    digitalWrite(moteur2, LOW);
+    monServo.write(0);
+  }
+}</code></pre>
+
+  <!-- ... contenu inchangé après ... -->
+
+  <h3 id="envoyer-code">📤 Envoyer le code à la carte</h3>
+  <p>1. Clique sur ✓ pour vérifier le code.<br>
+  2. Clique sur → pour téléverser à la carte.<br>
+  3. Le programme s’exécutera automatiquement.</p>
+
+  <h3 id="resultat-attendu">✅ Résultat attendu</h3>
+  <p>Quand tu appuies sur le bouton :<br>
+  - La LED s’allume<br>
+  - Les deux moteurs tournent<br>
+  - Le servomoteur bouge</p>
+
+  <h3 id="driver-ch340">🧩 Comment installer le driver CH340</h3>
+  <p>Pour les clones Arduino, il faut installer le driver CH340 si la carte n’est pas détectée.<br>
+  - Windows : <a href="https://sparks.gogo.co.nz/assets/_site_/downloads/CH34x_Install_Windows_v3_4.zip">télécharger ici</a><br>
+  - Mac : <a href="https://github.com/adrianmihalko/ch340g-ch34g-ch34x-mac-os-x-driver">driver GitHub</a></p>
+
+  <h3 id="moteur-sens">🔁 Comment changer le sens d’un moteur DC (L298N)</h3>
+  <pre><code>digitalWrite(moteur1, HIGH);
+digitalWrite(moteur2, LOW);  // Tourne dans un sens
+
+// ou
+
+digitalWrite(moteur1, LOW);
+digitalWrite(moteur2, HIGH); // Sens inverse</code></pre>
+
+  <h3 id="vitesse-pwm">⚡ Contrôler la vitesse avec PWM</h3>
+  <pre><code>analogWrite(moteur1, 128);  // 50% de vitesse
+analogWrite(moteur2, 0);</code></pre>
+
+  <h3 id="servo-position">🔄 Positionner un servomoteur</h3>
+  <pre><code>monServo.write(0);
+monServo.write(90);
+monServo.write(180);</code></pre>
+
+  <h3 id="alimentation">🧪 Alimenter les moteurs correctement</h3>
+  <p>Utilise une pile 9V ou un pack de piles pour les moteurs, et connecte les GND ensemble.</p>
+
+  <h3 id="tableau-connexions">🧠 Tableau des connexions (résumé)</h3>
+  <p>Consulte le tableau : broches Arduino ↔ composants. (Voir image)</p>
+  <img src="/preview.jpg" alt="Tableau des connexions">
+
+  <h3 id="commandes-arduino">⌨️ Commandes essentielles Arduino</h3>
+  <h3 id="digitalwrite">digitalWrite()</h3>
+  <pre><code>digitalWrite(2, HIGH);  // Allume la LED</code></pre>
+  <h3 id="analogwrite">analogWrite()</h3>
+  <pre><code>analogWrite(5, 192);  // Vitesse à 75%</code></pre>
+  <h3 id="servo-write">Servo.write()</h3>
+  <pre><code>monServo.write(90);</code></pre>
+
+  <h3 id="tableau-actions">🔍 Tableau résumé : code par action</h3>
+  <table border="1">
+    <tr><th>Action</th><th>Code</th></tr>
+    <tr><td>Moteur avance</td><td>digitalWrite(IN1, HIGH); digitalWrite(IN2, LOW);</td></tr>
+    <tr><td>Moteur recule</td><td>digitalWrite(IN1, LOW); digitalWrite(IN2, HIGH);</td></tr>
+    <tr><td>Moteur arrêté</td><td>digitalWrite(IN1, LOW); digitalWrite(IN2, LOW);</td></tr>
+    <tr><td>Vitesse 75%</td><td>analogWrite(IN1, 192);</td></tr>
+    <tr><td>Servo à 90°</td><td>monServo.write(90);</td></tr>
+  </table>
+
+  <h3 id="pourquoi-driver">🧩 Pourquoi installer le driver CH340 ?</h3>
+  <p>Le driver permet à l’ordinateur de détecter certaines cartes non officielles. Nécessaire si aucun port COM n’apparaît.</p>
+
+  <h3 id="alimentation-separee">🔋 Différences entre alimentation Arduino et moteurs</h3>
+  <p>Ne pas alimenter les moteurs via l’USB de l’Arduino — utiliser une alimentation externe (9V ou piles).</p>
+
+  <h3 id="pwm">🎚️ Qu’est-ce que le PWM ?</h3>
+  <p>Le PWM permet de simuler une variation de tension pour contrôler la vitesse ou l’intensité.</p>
+
+  <h3 id="masse-commune">🌐 Pourquoi relier les GND ?</h3>
+  <p>Sans masse commune entre les composants, les signaux ne peuvent pas circuler correctement. Toujours relier les GND.</p>
+
+</body>
+</html>

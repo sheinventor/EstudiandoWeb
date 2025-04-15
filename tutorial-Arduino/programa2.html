@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Arduino</title>
+    <style>
+        /* Estilos básicos */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Barra de navegación */
+        #navbar {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            background-color: #333;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+        
+        #navbar div {
+            padding: 10px 20px;
+            color: white;
+            background-color: #555;
+            margin: 0 5px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        #navbar div.active {
+            background-color: #4CAF50;
+        }
+        
+        /* Estilos para las etapas */
+        .step {
+            display: none; /* Ocultamos las etapas por defecto */
+            padding: 20px;
+            margin: 10px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 800px;
+            border-radius: 8px;
+            transition: transform 0.3s ease-out;
+        }
+
+        .active {
+            display: block; /* Solo mostramos la etapa activa */
+        }
+
+        /* Animación al cambiar de etapa */
+        .slide-in {
+            transform: translateX(0);
+        }
+
+        .slide-out {
+            transform: translateX(100%);
+        }
+
+        /* Botones de navegación */
+        #navigation {
+            margin-top: 20px;
+        }
+
+        #navigation button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        #navigation button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barra de navegación -->
+    <div id="navbar">
+        <div class="step-nav" onclick="navigateToStep(1)">Étape 1</div>
+        <div class="step-nav" onclick="navigateToStep(2)">Étape 2</div>
+        <div class="step-nav" onclick="navigateToStep(3)">Étape 3</div>
+    </div>
+
+    <!-- Etapas -->
+    <div id="step-1" class="step active slide-in">
+        <h2>⚙️ Installer le logiciel Arduino (IDE)</h2>
+        <p>Suivez les étapes pour télécharger et installer le logiciel Arduino...</p>
+    </div>
+
+    <div id="step-2" class="step">
+        <h2>🔌 Connecter la carte Arduino</h2>
+        <p>Voici les étapes pour connecter votre carte Arduino...</p>
+    </div>
+
+    <div id="step-3" class="step">
+        <h2>🧩 Pourquoi installer le driver CH340 ?</h2>
+        <p>Vous aurez besoin du driver CH340 pour certaines cartes Arduino...</p>
+    </div>
+
+    <!-- Controles de navegación -->
+    <div id="navigation">
+        <button onclick="navigate('prev')">Etape Précédente</button>
+        <button onclick="navigate('next')">Etape Suivante</button>
+    </div>
+
+    <script>
+        let currentStep = 1;
+        const totalSteps = 3; // Total de etapas disponibles
+
+        // Función para mostrar la etapa correspondiente
+        function navigate(direction) {
+            // Ocultar la etapa actual
+            document.getElementById(`step-${currentStep}`).classList.remove('active', 'slide-in');
+            document.getElementById(`step-${currentStep}`).classList.add('slide-out');
+
+            // Determinar la nueva etapa
+            if (direction === 'next' && currentStep < totalSteps) {
+                currentStep++;
+            } else if (direction === 'prev' && currentStep > 1) {
+                currentStep--;
+            }
+
+            // Actualizar barra de navegación
+            updateNavBar();
+
+            // Mostrar la nueva etapa con animación
+            setTimeout(() => {
+                document.getElementById(`step-${currentStep}`).classList.remove('slide-out');
+                document.getElementById(`step-${currentStep}`).classList.add('active', 'slide-in');
+            }, 300); // Tiempo de transición
+        }
+
+        // Actualizar la barra de navegación
+        function updateNavBar() {
+            const navItems = document.querySelectorAll('.step-nav');
+            navItems.forEach((item, index) => {
+                if (index === currentStep - 1) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+        }
+
+        // Navegar a una etapa específica desde la barra de navegación
+        function navigateToStep(step) {
+            currentStep = step;
+            updateNavBar();
+            // Ocultar la etapa actual
+            document.querySelectorAll('.step').forEach((el) => {
+                el.classList.remove('active', 'slide-in');
+                el.classList.add('slide-out');
+            });
+
+            // Mostrar la nueva etapa
+            setTimeout(() => {
+                document.getElementById(`step-${currentStep}`).classList.remove('slide-out');
+                document.getElementById(`step-${currentStep}`).classList.add('active', 'slide-in');
+            }, 300);
+        }
+    </script>
+
+</body>
+</html>
