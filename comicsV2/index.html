@@ -6,12 +6,13 @@
   <!-- Define que el juego de caracteres es UTF-8 (soporta todos los caracteres especiales) -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <!-- Establece cómo debe comportarse la página en dispositivos móviles (ajuste del tamaño según el dispositivo) -->
-  <title>Visor de Cómics</title>
+  <title>SheInventor Cómics</title>
   <!-- Define el título de la página que aparece en la pestaña del navegador -->
+  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     /* Aquí se define el estilo CSS de la página */
     body {
-      font-family: sans-serif;
+      font-family: 'Titillium Web',sans-serif;
       background: #fff;
       text-align: center;
       margin: 0;
@@ -56,7 +57,7 @@
 </head>
 <body>
   <!-- Encabezado con el título de la página -->
-  <h1>Visor de Cómics</h1>
+  <h1>SheInventor Cómics</h1>
   <!-- Selector de cómics que se llenará dinámicamente con las opciones de cómics -->
   <select id="comic-selector"></select>
   
@@ -74,9 +75,9 @@
 
   <!-- Botones para navegar entre las páginas del cómic -->
   <div class="controls">
-    <button onclick="previousPage()">Anterior</button>
-    <button onclick="goHome()">Inicio</button>
-    <button onclick="nextPage()">Siguiente</button>
+    <button onclick="previousPage()">◀️</button>
+    <button onclick="goHome()">🔁</button>
+    <button onclick="nextPage()">▶️</button>
   </div>
 
   <!-- Contenedor donde se mostrarán las miniaturas de cómics recientes -->
@@ -246,5 +247,18 @@
     loadRecentComics();
     loadManifest(loadComic);
   </script>
+
+<footer>
+    
+  <div style="background-color: #fff0f5; padding: 20px; border-radius: 12px; text-align: center; font-family: sans-serif;">
+      <h2 style="color: #222;">Vous avez aimé cette expérience ?</h2>
+      <p style="font-size: 16px; margin-bottom: 20px;">Découvrez d'autres projets que j'ai créés avec SheInventor 🌈</p>
+      <a href="https://www.instagram.com/sheinventor" target="_blank" style="background-color: #e4405f; color: white; padding: 10px 20px; margin: 5px; border-radius: 8px; text-decoration: none;">Instagram</a>
+      <a href="https://www.youtube.com/@SheInventor" target="_blank" style="background-color: #ff0000; color: white; padding: 10px 20px; margin: 5px; border-radius: 8px; text-decoration: none;">YouTube</a>
+      <a href="https://www.tiktok.com/@sheinventor" target="_blank" style="background-color: #010101; color: white; padding: 10px 20px; margin: 5px; border-radius: 8px; text-decoration: none;">TikTok</a>
+      <p style="margin-top: 20px;">💌 Envie de collaborer ? <a href="mailto:sheinventor11@gmail.com" style="color: #0077cc; text-decoration: underline;">Écrivez-moi ici</a></p>
+    </div>
+    
+</footer>
 </body>
 </html>
