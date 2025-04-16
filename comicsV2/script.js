@@ -8,6 +8,7 @@ let currentTrackId = null;
 document.getElementById("language").addEventListener("change", function () {
   language = this.value;
   loadText();
+  updateRecentText();
 });
 
 function loadManifest(callback) {
@@ -161,9 +162,20 @@ function showMusicText(show) {
   text.textContent = messages[language] || messages["en"];
 }
 
+function updateRecentText() {
+  const text = document.getElementById("recent-text");
+  const messages = {
+    es: "Disfruta más cómics aquí:",
+    en: "Enjoy more comics here:",
+    fr: "Découvre d'autres bandes dessinées ici :"
+  };
+  text.textContent = messages[language] || messages["en"];
+}
+
 document.getElementById("comic-img").addEventListener("load", adjustTextPositions);
 window.addEventListener("resize", adjustTextPositions);
 
 loadComicList();
 loadRecentComics();
 loadManifest(loadComic);
+updateRecentText();
