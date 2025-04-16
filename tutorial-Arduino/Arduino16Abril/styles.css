@@ -1,0 +1,116 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
+  }
+  header {
+    background-color: #282c34;
+    color: white;
+    padding: 1rem 2rem;
+    text-align: center;
+  }
+  .nav-bar {
+    background-color: #0077cc;
+    padding: 1rem 0;
+    text-align: center;
+  }
+  .nav-bar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 1rem;
+    font-weight: bold;
+  }
+  .nav-bar a:hover {
+    text-decoration: underline;
+  }
+  main {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+  }
+  .step {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: none;
+  }
+  .step.active {
+    display: block;
+  }
+  .step h2 {
+    color: #0077cc;
+  }
+  .step ul {
+    padding-left: 20px;
+  }
+  .step p {
+    margin-top: 0;
+  }
+  .step .tag {
+    background-color: #0077cc;
+    color: white;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.9rem;
+    border-radius: 5px;
+  }
+  .button {
+    background-color: #0077cc;
+    color: white;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 1rem;
+  }
+  .button:hover {
+    background-color: #005fa3;
+  }
+  .step-nav {
+    padding: 10px 20px;
+    color: white;
+    background-color: #555;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  .step-nav.active {
+    background-color: #4CAF50;
+  }
+  #navigation {
+    margin-top: 20px;
+  }
+  #navigation button {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  #navigation button:hover {
+    background-color: #45a049;
+  }
+  
+  .copy-button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+  }
+  
+  .copy-button:hover {
+    background-color: #0056b3;
+  }
