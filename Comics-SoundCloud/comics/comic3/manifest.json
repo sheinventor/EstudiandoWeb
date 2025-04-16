@@ -1,0 +1,12 @@
+{
+  "title": "Otro Comic",
+  "pages": 3,
+  "dialogs": [
+    { "page": 1, "lang": "en", "x": 50, "y": 20, "text": "", "soundcloud": "https://soundcloud.com/embeihold/numb-little-bug"},
+    { "page": 1, "lang": "fr", "x": 50, "y": 20, "text": "", "soundcloud": "https://soundcloud.com/embeihold/numb-little-bug"},
+    { "page": 1, "lang": "es", "x": 50, "y": 20, "text": "", "soundcloud": "https://soundcloud.com/embeihold/numb-little-bug"}
+
+
+
+  ]
+}
