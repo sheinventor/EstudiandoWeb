@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Créer une lampe LED recyclée</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+      color: #333;
+    }
+    header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    .nav-bar {
+      background-color: #2980b9;
+      padding: 1rem;
+      text-align: center;
+    }
+    .nav-bar span {
+      color: white;
+      margin: 0 1rem;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .nav-bar span:hover {
+      text-decoration: underline;
+    }
+    main {
+      padding: 2rem;
+    }
+    .step {
+      display: none;
+      background: white;
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .step.active {
+      display: block;
+    }
+    .button {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background-color: #27ae60;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    .button:hover {
+      background-color: #219150;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Tutoriel : Créer une lampe LED avec des matériaux recyclés</h1>
+    <p>Un projet simple, écologique et lumineux !</p>
+  </header>
+
+  <div class="nav-bar">
+    <span onclick="navigateToStep(1)">👀 Contexte</span>
+    <span onclick="navigateToStep(2)">🛠 Matériel</span>
+    <span onclick="navigateToStep(3)">🔌 Assemblage</span>
+    <span onclick="navigateToStep(4)">💡 Personnalisation</span>
+  </div>
+
+  <main>
+    <div class="step" id="step1">
+      <h2>👀 Pourquoi fabriquer une lampe ?</h2>
+      <p>Ce projet vous permet de :</p>
+      <ul>
+        <li>Découvrir les bases du circuit électrique (interrupteur, LED, résistance).</li>
+        <li>Réutiliser des matériaux destinés à la poubelle (boîtes, bouchons, câbles).</li>
+        <li>Créer un objet utile et décoratif.</li>
+      </ul>
+      <a class="button" href="#" onclick="navigateToStep(2)">Étape suivante : Matériel</a>
+    </div>
+
+    <div class="step" id="step2">
+      <h2>🛠 Matériel nécessaire</h2>
+      <ul>
+        <li>1 LED (n'importe quelle couleur)</li>
+        <li>1 résistance 220Ω</li>
+        <li>1 interrupteur simple</li>
+        <li>1 porte-piles + 2 piles AA</li>
+        <li>Fils électriques</li>
+        <li>Pistolet à colle (ou scotch, pâte fixante...)</li>
+        <li>Support recyclé : boîte de conserve, boîte en carton, bouteille coupée…</li>
+      </ul>
+      <a class="button" href="#" onclick="navigateToStep(3)">Étape suivante : Assemblage</a>
+    </div>
+
+    <div class="step" id="step3">
+      <h2>🔌 Montage du circuit</h2>
+      <ol>
+        <li>Relier la borne + des piles à une patte de l’interrupteur.</li>
+        <li>Sortir de l’interrupteur vers la résistance.</li>
+        <li>Brancher ensuite la LED (attention à la polarité !).</li>
+        <li>La patte négative de la LED va à la borne - des piles.</li>
+      </ol>
+      <p>💡 Testez votre lampe : elle devrait s’allumer quand vous appuyez sur l’interrupteur !</p>
+      <a class="button" href="#" onclick="navigateToStep(4)">Étape suivante : Personnalisation</a>
+    </div>
+
+    <div class="step" id="step4">
+      <h2>💡 Personnaliser votre lampe</h2>
+      <ul>
+        <li>Décorez avec des papiers colorés, tissus, autocollants…</li>
+        <li>Ajoutez un abat-jour avec du plastique translucide (recyclé !)</li>
+        <li>Utilisez un support original : boîte de thé, ancien jouet, pot à yaourt…</li>
+      </ul>
+      <p>Laissez libre cours à votre imagination ✨</p>
+    </div>
+  </main>
+
+  <script>
+    function navigateToStep(stepNumber) {
+      const steps = document.querySelectorAll('.step');
+      steps.forEach(step => step.classList.remove('active'));
+      document.getElementById('step' + stepNumber).classList.add('active');
+    }
+
+    // Show first step on load
+    navigateToStep(1);
+  </script>
+</body>
+</html>
