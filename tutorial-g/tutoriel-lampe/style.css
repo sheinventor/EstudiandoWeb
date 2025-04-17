@@ -15,7 +15,7 @@ html, body {
 
 /* Header arriba del todo */
 header {
-  background-color: #ffffff;
+  background-color: #290633;
   padding: 20px;
   text-align: center;
   border-bottom: 4px solid #ffffff;
@@ -40,7 +40,7 @@ header p {
 /* Sidebar fijo a la izquierda */
 .sidebar {
   width: 250px;
-  background-color: #1ecfa3;
+  background-color: #8d4e96;
   padding: 20px;
   flex-shrink: 0;
 }
