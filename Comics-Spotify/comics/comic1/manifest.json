@@ -2,9 +2,9 @@
   "title": "Emanuel",
   "pages": 6,
   "dialogs": [
-    { "page": 1, "lang": "en", "x": 50, "y": 10, "text": "There are memories that shape lives.", "soundcloud": "https://soundcloud.com/cepillinofficial/la-feria-de-cepillin" },
-    { "page": 1, "lang": "fr", "x": 50, "y": 10, "text": "Il y a des souvenirs qui marquent des vies.", "soundcloud": "https://soundcloud.com/cepillinofficial/la-feria-de-cepillin" },
-    { "page": 1, "lang": "es", "x": 50, "y": 10, "text": "Hay recuerdos que marcan vidas.","soundcloud": "https://soundcloud.com/cepillinofficial/la-feria-de-cepillin" },
+    { "page": 1, "lang": "en", "x": 50, "y": 10, "text": "There are memories that shape lives.", "track": "0X2cpcCTlr30I5bkIp6nN5" },
+    { "page": 1, "lang": "fr", "x": 50, "y": 10, "text": "Il y a des souvenirs qui marquent des vies.", "track": "0X2cpcCTlr30I5bkIp6nN5" },
+    { "page": 1, "lang": "es", "x": 50, "y": 10, "text": "Hay recuerdos que marcan vidas.","track": "0X2cpcCTlr30I5bkIp6nN5" },
 
     { "page": 1, "lang": "en", "x": 80, "y": 60, "text": "Paola, at 6 years old, with a bowl haircut."},
     { "page": 1, "lang": "fr", "x": 80, "y": 60, "text": "Paola, À ses 6 ans, avec une coupe au bol." },
