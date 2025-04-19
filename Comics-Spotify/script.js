@@ -156,18 +156,15 @@ function loadSpotify(trackId) {
 
 function showMusicText(show) {
   const text = document.getElementById("music-text");
-  if (!show) {
-    text.textContent = "";
-    return;
+  if (show) {
+    const messages = {
+      es: "Acompaña este cómic con esta canción:",
+      en: "Enjoy this comic with this song:",
+      fr: "Accompagne ce comic avec cette chanson :"
+    };
+    text.textContent = messages[language] || messages["en"];
   }
-
-  const messages = {
-    es: "Acompaña este cómic con esta canción:",
-    en: "Enjoy this comic with this song:",
-    fr: "Accompagne ce comic avec cette chanson :"
-  };
-
-  text.textContent = messages[language] || messages["en"];
+  // Si `show` es false, no hacemos nada para que permanezca
 }
 
 function updateMoreComicsText() {
