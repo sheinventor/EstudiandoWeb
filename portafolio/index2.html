@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SheInventor</title>
+  <style>
+    /* Reset básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body y fuente */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      padding: 20px;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      padding: 40px;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      color: #3b163b;
+    }
+
+    /* Contenedor principal */
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    /* Tarjetas de proyecto */
+    .project {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      width: 300px;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .project h3 {
+      color: #3b163b;
+      margin-bottom: 15px;
+    }
+
+    .project p {
+      color: #555;
+      font-size: 1rem;
+    }
+
+    /* Enlaces */
+    .links a {
+      text-decoration: none;
+      color: #3b163b;
+      font-weight: bold;
+      margin-top: 10px;
+      display: inline-block;
+    }
+
+    /* Responsividad */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>SheInventor</h1>
+    <p>Proyectos de ciencia, arte y diseño creativo.</p>
+  </header>
+
+  <div class="container">
+    <!-- Proyecto 1 -->
+    <div class="project">
+      <h3>Talleres de Electrónica Reciclada</h3>
+      <p>Actividades creativas donde la ciencia y el reciclaje se encuentran. Aprende haciendo con materiales reutilizados.</p>
+      <div class="links">
+        <a href="#">Ver Proyecto</a>
+      </div>
+    </div>
+
+    <!-- Proyecto 2 -->
+    <div class="project">
+      <h3>Ilustraciones Científicas</h3>
+      <p>Diseño de ilustraciones para explicar conceptos científicos de manera visual y accesible.</p>
+      <div class="links">
+        <a href="#">Ver Proyecto</a>
+      </div>
+    </div>
+
+    <!-- Proyecto 3 -->
+    <div class="project">
+      <h3>Contenido de Divulgación</h3>
+      <p>Videos y guiones creativos para explicar temas científicos en redes sociales.</p>
+      <div class="links">
+        <a href="#">Ver Proyecto</a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

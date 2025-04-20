@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SheInventor - Portfolio</title>
+  <style>
+    :root {
+      --verde-suave: #8CC795;
+      --verde-claro: #9EE5B4;
+      --rosa: #EE737E;
+      --morado: #3B163B;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      background-color: #fff;
+      color: var(--morado);
+    }
+
+    header {
+      background-color: var(--verde-suave);
+      color: var(--morado);
+      text-align: center;
+      padding: 2rem;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      font-style: italic;
+    }
+
+    section {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h2 {
+      color: var(--rosa);
+      border-bottom: 2px solid var(--verde-claro);
+      padding-bottom: 0.3rem;
+    }
+
+    .servicio {
+      margin-bottom: 2rem;
+      background-color: #f9f9f9;
+      border-left: 4px solid var(--verde-claro);
+      padding: 1rem;
+      border-radius: 8px;
+    }
+
+    .servicio h3 {
+      margin-top: 0;
+      color: var(--morado);
+    }
+
+    footer {
+      background-color: var(--morado);
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
+    }
+
+    .contacto {
+      background-color: var(--verde-claro);
+      padding: 1rem;
+      border-radius: 8px;
+    }
+
+    .about-me {
+      background-color: #fdfdfd;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-top: 2rem;
+    }
+
+    .language-toggle {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="language-toggle">
+    <button onclick="toggleLanguage()">ES / EN / FR</button>
+  </div>
+
+  <div id="es">
+    <header>
+      <h1>SheInventor</h1>
+      <p>Diseño experiencias que conectan ciencia, arte y creatividad para aprender con emoción.</p>
+    </header>
+
+    <section>
+      <h2>Servicios</h2>
+      <div class="servicio">
+        <h3>Talleres creativos de ciencia</h3>
+        <p>Actividades presenciales o en línea para descubrir la ciencia con las manos. Temas como electrónica reciclada, diseño frugal o juegos científicos. Para niños, jóvenes o adultos curiosos.</p>
+        <p><strong>Ejemplo:</strong> Taller “Construye tu juego de lógica con basura electrónica”.</p>
+      </div>
+      <div class="servicio">
+        <h3>Ilustración científica y materiales pedagógicos</h3>
+        <p>Diseño de fichas, cómics o mapas visuales para explicar temas complejos de forma clara y visual.</p>
+        <p><strong>Ejemplo:</strong> Póster sobre energía solar, cómic sobre bacterias resistentes.</p>
+      </div>
+      <div class="servicio">
+        <h3>Contenido de divulgación para redes</h3>
+        <p>Creación de guiones, reels y videos educativos con storytelling para cuentas científicas o culturales.</p>
+        <p><strong>Ejemplo:</strong> Reel “¿Qué pasaría si no existiera el silicio?”</p>
+      </div>
+    </section>
+
+    <section class="about-me">
+      <h2>Sobre mí</h2>
+      <p>Soy Paola, ingeniera, ilustradora y divulgadora. Desde México hasta Francia, traduzco el lenguaje de la ciencia para que se vuelva cercano, visual y emocionante.</p>
+      <p>Idiomas: 🇫🇷 🇪🇸 🇬🇧</p>
+      <p>Formación: Ingeniería electrónica, diseño, mediación científica.</p>
+      <p>Actualmente soy mediadora científica en el Lorraine Fab Living Lab de la Universidad de Lorraine y acompaño proyectos en el FabLab y el laboratorio de investigación en innovación ERPI.</p>
+    </section>
+
+    <section>
+      <h2>¿Cómo trabajar conmigo?</h2>
+      <div class="contacto">
+        <p>📩 Paso 1: Me contactas con tu idea</p>
+        <p>🛠️ Paso 2: Te propongo una solución creativa</p>
+        <p>✨ Paso 3: Creamos algo memorable</p>
+        <p>📬 <strong>Contacto:</strong> sheinventor@email.com</p>
+        <p>📱 <strong>Instagram:</strong> <a href="https://www.instagram.com/sheinventor" target="_blank">@sheinventor</a></p>
+        <p>💼 <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/paoladelpilarvazquez/" target="_blank">Paola - SheInventor</a></p>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2025 SheInventor. Diseño, ciencia y creatividad para todos.</p>
+    </footer>
+  </div>
+
+  <div id="en" style="display: none;">
+    <header>
+      <h1>SheInventor</h1>
+      <p>I design experiences that connect science, art, and creativity to learn with emotion.</p>
+    </header>
+
+    <section>
+      <h2>Services</h2>
+      <div class="servicio">
+        <h3>Creative science workshops</h3>
+        <p>Hands-on activities (online or in person) to discover science by doing. Topics include recycled electronics, frugal design, and science-based games. For kids, teens, and curious adults.</p>
+        <p><strong>Example:</strong> Workshop “Build your own logic game with electronic waste”.</p>
+      </div>
+      <div class="servicio">
+        <h3>Scientific illustration and educational materials</h3>
+        <p>Design of cards, comics or visual maps to explain complex topics in a simple, appealing way.</p>
+        <p><strong>Example:</strong> Poster on solar energy, comic about antibiotic resistance.</p>
+      </div>
+      <div class="servicio">
+        <h3>Science content for social media</h3>
+        <p>Creation of scripts, reels and short educational videos with storytelling for science or cultural accounts.</p>
+        <p><strong>Example:</strong> Reel “What if silicon didn’t exist?”</p>
+      </div>
+    </section>
+
+    <section class="about-me">
+      <h2>About me</h2>
+      <p>I'm Paola, engineer, illustrator and science communicator. From Mexico to France, I translate science into something visual, human and exciting.</p>
+      <p>Languages: 🇫🇷 🇪🇸 🇬🇧</p>
+      <p>Background: Electronic engineering, design, science mediation.</p>
+      <p>I currently work as a science communicator at the Lorraine Fab Living Lab of the University of Lorraine, supporting projects in the FabLab and the innovation research lab ERPI.</p>
+    </section>
+
+    <section>
+      <h2>How to work with me</h2>
+      <div class="contacto">
+        <p>📩 Step 1: Contact me with your idea</p>
+        <p>🛠️ Step 2: I propose a creative solution</p>
+        <p>✨ Step 3: We build something memorable</p>
+        <p>📬 <strong>Email:</strong> sheinventor@email.com</p>
+        <p>📱 <strong>Instagram:</strong> <a href="https://www.instagram.com/sheinventoreng" target="_blank">@sheinventoreng</a></p>
+        <p>💼 <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/paoladelpilarvazquez/" target="_blank">Paola - SheInventor</a></p>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2025 SheInventor. Design, science and creativity for everyone.</p>
+    </footer>
+  </div>
+
+  <div id="fr" style="display: none;">
+    <header>
+      <h1>SheInventor</h1>
+      <p>Je conçois des expériences qui connectent la science, l'art et la créativité pour apprendre avec émotion.</p>
+    </header>
+
+    <section>
+      <h2>Services</h2>
+      <div class="servicio">
+        <h3>Ateliers créatifs de science</h3>
+        <p>Activités pratiques (en ligne ou en personne) pour découvrir la science en agissant. Des sujets tels que l'électronique recyclée, le design frugal et des jeux scientifiques. Pour les enfants, les adolescents et les adultes curieux.</p>
+        <p><strong>Exemple :</strong> Atelier “Construire votre propre jeu logique avec des déchets électroniques”.</p>
+      </div>
+      <div class="servicio">
+        <h3>Illustration scientifique et supports pédagogiques</h3>
+        <p>Conception de cartes, de bandes dessinées ou de cartes visuelles pour expliquer des sujets complexes de manière simple et attrayante.</p>
+        <p><strong>Exemple :</strong> Affiche sur l'énergie solaire, bande dessinée sur la résistance aux antibiotiques.</p>
+      </div>
+      <div class="servicio">
+        <h3>Contenu scientifique pour les réseaux sociaux</h3>
+        <p>Création de scripts, de reels et de vidéos éducatives avec narration pour des comptes scientifiques ou culturels.</p>
+        <p><strong>Exemple :</strong> Reel “Que se passerait-il si le silicium n'existait pas ?”</p>
+      </div>
+    </section>
+
+    <section class="about-me">
+      <h2>À propos de moi</h2>
+      <p>Je suis Paola, ingénieure, illustratrice et médiatrice scientifique. Du Mexique à la France, je traduis la science pour la rendre visuelle, humaine et excitante.</p>
+      <p>Langues : 🇫🇷 🇪🇸 🇬🇧</p>
+      <p>Formation : Ingénierie électronique, design, médiation scientifique.</p>
+      <p>Actuellement, je travaille en tant que médiatrice scientifique au Lorraine Fab Living Lab de l'Université de Lorraine, soutenant des projets au FabLab et dans le laboratoire de recherche en innovation ERPI.</p>
+    </section>
+
+    <section>
+      <h2>Comment travailler avec moi</h2>
+      <div class="contacto">
+        <p>📩 Étape 1 : Contactez-moi avec votre idée</p>
+        <p>🛠️ Étape 2 : Je propose une solution créative</p>
+        <p>✨ Étape 3 : Nous créons quelque chose de mémorable</p>
+        <p>📬 <strong>Email :</strong> sheinventor@email.com</p>
+        <p>📱 <strong>Instagram :</strong> <a href="https://www.instagram.com/sheinventorfr" target="_blank">@sheinventorfr</a></p>
+        <p>💼 <strong>LinkedIn :</strong> <a href="https://www.linkedin.com/in/paoladelpilarvazquez/" target="_blank">Paola - SheInventor</a></p>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2025 SheInventor. Design, science et créativité pour tous.</p>
+    </footer>
+  </div>
+
+  <script>
+    function toggleLanguage() {
+      let currentLang = document.documentElement.lang;
+      let newLang = currentLang === 'es' ? 'en' : currentLang === 'en' ? 'fr' : 'es';
+      document.documentElement.lang = newLang;
+      document.getElementById('es').style.display = newLang === 'es' ? 'block' : 'none';
+      document.getElementById('en').style.display = newLang === 'en' ? 'block' : 'none';
+      document.getElementById('fr').style.display = newLang === 'fr' ? 'block' : 'none';
+    }
+  </script>
+</body>
+</html>
