@@ -1,0 +1,87 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #fef6fe;
+    color: #333;
+    display: flex;
+  }
+  
+  .sidebar {
+    width: 250px;
+    background-color: #fde4ec;
+    padding: 20px;
+    height: 100vh;
+    box-sizing: border-box;
+  }
+  
+  .sidebar h2 {
+    color: #b84eb8;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar li {
+    margin: 10px 0;
+    cursor: pointer;
+  }
+  
+  .sidebar .current {
+    font-weight: bold;
+    color: #78328a;
+    background-color: #fcd6e4;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  
+  .sidebar .future {
+    color: #4e2a5c;
+    background-color: #fdf3f6;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  
+  .main-content {
+    flex: 1;
+    padding: 0;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  header {
+    background-color: #f9c8d9;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 4px solid #f7a8c1;
+  }
+  
+  header h1 {
+    margin: 0;
+    color: #501c55;
+  }
+  
+  .module {
+    background-color: #ffffff;
+    border: 1px solid #f3cbd3;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 20px;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.05);
+    display: none;
+  }
+  
+  .module h2 {
+    color: #b54eb8;
+  }
+  
+  footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #f9c8d9;
+    color: #5c2a3e;
+    font-size: 14px;
+  }
+  

@@ -1,0 +1,30 @@
+{
+    "title": "Mi primer cómic",
+    "pages": 7,
+    "dialogs": [
+      { "page": 1, "lang": "en", "x": 50, "y": 20, "text": "I was used to loose flowers in my garden", "track": "7zSBOSD4w5LGv1bIblkVFp"},
+      { "page": 1, "lang": "fr", "x": 50, "y": 20, "text": "J'avais l'habitude de perdre des fleurs dans mon jardin", "track": "7zSBOSD4w5LGv1bIblkVFp"},
+      { "page": 1, "lang": "es", "x": 50, "y": 20, "text": "Estaba acostumbrada a perder flores en mi jardín", "track": "7zSBOSD4w5LGv1bIblkVFp"},
+  
+      { "page": 2, "lang": "en", "x": 50, "y": 20, "text": "I didn't care much they were often rejected" },
+      { "page": 2, "lang": "fr", "x": 50, "y": 20, "text": "Je me souciais peu qu'elles soient souvent rejetées" },
+      { "page": 2, "lang": "es", "x": 50, "y": 20, "text": "No me importaba mucho que fueran a menudo rechazadas" },
+  
+      { "page": 3, "lang": "en", "x": 20, "y": 20, "text": "But then, a short anomaly happened" },
+      { "page": 3, "lang": "fr", "x": 20, "y": 20, "text": "Mais ensuite, une petite anomalie s'est produite" },
+      { "page": 3, "lang": "es", "x": 50, "y": 20, "text": "Pero luego, ocurrió una pequeña anomalía" },
+  
+      { "page": 4, "lang": "en", "x": 50, "y": 20, "text": "I discovered that not everyone will take your flowers" },
+      { "page": 4, "lang": "fr", "x": 50, "y": 20, "text": "J'ai découvert que tout le monde ne prendra pas vos fleurs" },
+      { "page": 4, "lang": "es", "x": 50, "y": 20, "text": "Descubrí que no todo el mundo tomará tus flores" },
+  
+      { "page": 5, "lang": "en", "x": 50, "y": 20, "text": "There are people that will appreciate them and help you grow them" },
+      { "page": 5, "lang": "fr", "x": 50, "y": 20, "text": "Il y a des gens qui les apprécieront et vous aideront à les faire pousser" },
+      { "page": 5, "lang": "es", "x": 50, "y": 20, "text": "Hay personas que las apreciarán y te ayudarán a cultivarlas" },
+  
+      { "page": 5, "lang": "en", "x": 55, "y": 45, "text": "flower food" },
+      { "page": 5, "lang": "fr", "x": 50, "y": 45, "text": "nourriture pour fleurs" },
+      { "page": 5, "lang": "es", "x": 55, "y": 45, "text": "comida para flores" }
+    ]
+  }
+  

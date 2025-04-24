@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SheInventor Cómics</title>
+  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>SheInventor Cómics</h1>
+
+  <div id="comic-container">
+    <img id="comic-img" src="" alt="Comic">
+    <div class="selectors">
+      <select id="comic-selector"></select>
+      <select id="language">
+        <option value="es">Español</option>
+        <option value="en">English</option>
+        <option value="fr">Français</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="controls">
+    <img src="antes.png" alt="Anterior" class="nav-button" onclick="previousPage()">
+    <img src="inicio.png" alt="Inicio" class="nav-button" onclick="goHome()">
+    <img src="luego.png" alt="Siguiente" class="nav-button" onclick="nextPage()">
+  </div>
+
+  <p id="music-text" class="music-text"></p>
+  <div id="music-container"></div>
+
+  <p id="more-comics-text" class="more-comics-text"></p>
+  <div class="recent-comics" id="recent-comics"></div>
+
+  <footer>
+    <div class="footer-box">
+      <h2>¿Te gustó esta experiencia?</h2>
+      <p>Descubre más proyectos que he creado con SheInventor 🌈</p>
+      <a href="https://www.instagram.com/sheinventor" target="_blank" class="footer-link instagram">Instagram</a>
+      <a href="https://www.youtube.com/@SheInventor" target="_blank" class="footer-link youtube">YouTube</a>
+      <a href="https://www.tiktok.com/@sheinventor" target="_blank" class="footer-link tiktok">TikTok</a>
+      <p>💌 ¿Quieres colaborar? <a href="mailto:sheinventor11@gmail.com">Escríbeme aquí</a></p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

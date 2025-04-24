@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+  <!-- Establece el lenguaje del documento HTML a español -->
+<head>
+  <meta charset="UTF-8" />
+  <!-- Define que el juego de caracteres es UTF-8 (soporta todos los caracteres especiales) -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!-- Establece cómo debe comportarse la página en dispositivos móviles (ajuste del tamaño según el dispositivo) -->
+  <title>SheInventor Cómics</title>
+  <!-- Define el título de la página que aparece en la pestaña del navegador -->
+  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Aquí se define el estilo CSS de la página */
+    body {
+      font-family: 'Titillium Web',sans-serif;
+      background: #fff;
+      text-align: center;
+      margin: 0;
+    }
+    /* El contenedor de la imagen del cómic se ajustará en la página */
+    #comic-container {
+      position: relative;
+      max-width: 600px;
+      margin: auto;
+    }
+    #comic-img {
+      width: 100%;
+      height: auto;
+    }
+    .text-overlay {
+      position: absolute;
+      background: rgba(0,0,0,0.6);
+      color: white;
+      padding: 4px 8px;
+      border-radius: 4px;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+    /* Estilo de los botones y miniaturas */
+    .controls, .recent-comics {
+      margin: 20px;
+    }
+    .recent-comic {
+      width: 80px;
+      cursor: pointer;
+      margin: 5px;
+    }
+    button {
+      padding: 10px;
+      margin: 5px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Encabezado con el título de la página -->
+  <h1>SheInventor Cómics</h1>
+  <!-- Selector de cómics que se llenará dinámicamente con las opciones de cómics -->
+  <select id="comic-selector"></select>
+  
+  <!-- Selector para elegir el idioma -->
+  <select id="language">
+    <option value="es">Español</option>
+    <option value="en">English</option>
+    <option value="fr">Français</option>
+  </select>
+  
+  <!-- Contenedor donde se mostrará la imagen del cómic -->
+  <div id="comic-container">
+    <img id="comic-img" src="" alt="Comic">
+  </div>
+
+  <!-- Botones para navegar entre las páginas del cómic -->
+  <div class="controls">
+    <button onclick="previousPage()">◀️</button>
+    <button onclick="goHome()">🔁</button>
+    <button onclick="nextPage()">▶️</button>
+  </div>
+
+  <!-- Contenedor donde se mostrarán las miniaturas de cómics recientes -->
+  <div class="recent-comics" id="recent-comics"></div>
+  
+  <!-- Contenedor para el reproductor de Spotify (si aplica) -->
+  <div id="spotify-container"></div>
+
+  <script>
+    /* Declaración de variables para el control del cómic actual */
+    let currentPage = 0;
+    let totalPages = 0;
+    let comicName = "comic1";  // Cómic inicial
+    let language = "es";  // Idioma inicial
+    let manifest = null;  // Manifiesto que contiene datos sobre el cómic
+
+    /* Cambia el idioma al seleccionar una opción */
+    document.getElementById("language").addEventListener("change", function () {
+      language = this.value;  // Actualiza el idioma seleccionado
+      loadText();  // Recarga los subtítulos con el nuevo idioma
+    });
+
+    /* Carga el manifiesto del cómic (información sobre las páginas y subtítulos) */
+    function loadManifest(callback) {
+      fetch(`comics/${comicName}/manifest.json`)
+        .then(res => res.json())  // Lee el archivo JSON del manifiesto
+        .then(data => {
+          manifest = data;  // Guarda los datos del manifiesto
+          totalPages = data.pages;  // Define el número total de páginas
+          callback();  // Llama a la función que maneja la carga del cómic
+        });
+    }
+
+    /* Carga la imagen y los subtítulos del cómic */
+    function loadComic() {
+      document.getElementById("comic-img").src = `comics/${comicName}/${currentPage}.jpg`;  // Cambia la imagen del cómic
+      loadText();  // Carga los subtítulos correspondientes a la página
+    }
+
+    /* Carga los subtítulos y los muestra sobre la imagen */
+    function loadText() {
+      document.querySelectorAll('.text-overlay').forEach(e => e.remove());  // Elimina los subtítulos anteriores
+
+      let trackSet = false;  // Bandera para controlar la carga de la pista de Spotify
+
+      // Recorre todos los diálogos del manifiesto
+      manifest.dialogs.forEach(d => {
+        // Si el diálogo corresponde a la página y el idioma seleccionados
+        if (d.page === currentPage && d.lang === language) {
+          const span = document.createElement("span");  // Crea un nuevo elemento de texto para el subtítulo
+          span.className = "text-overlay";  // Asigna estilo al subtítulo
+          span.innerText = d.text;  // Asigna el texto del subtítulo
+          span.dataset.x = d.x;  // Guarda la posición X para el subtítulo
+          span.dataset.y = d.y;  // Guarda la posición Y para el subtítulo
+          document.getElementById("comic-container").appendChild(span);  // Agrega el subtítulo al contenedor
+
+          // Si existe una pista de Spotify, la carga
+          if (d.track && !trackSet) {
+            loadSpotify(d.track);  // Carga el iframe de Spotify con la pista
+            trackSet = true;  // Marca que ya se cargó la pista
+          }
+        }
+      });
+
+      adjustTextPositions();  // Ajusta la posición de los subtítulos
+    }
+
+    /* Ajusta las posiciones de los subtítulos para que se alineen correctamente con la imagen */
+    function adjustTextPositions() {
+      const img = document.getElementById("comic-img");
+      const width = img.clientWidth;  // Obtiene el ancho de la imagen
+      const height = img.clientHeight;  // Obtiene la altura de la imagen
+
+      document.querySelectorAll(".text-overlay").forEach(span => {
+        const x = parseFloat(span.dataset.x);  // Obtiene la posición X del subtítulo
+        const y = parseFloat(span.dataset.y);  // Obtiene la posición Y del subtítulo
+        span.style.left = `${(x / 100) * width}px`;  // Calcula la posición X en píxeles
+        span.style.top = `${(y / 100) * height}px`;  // Calcula la posición Y en píxeles
+      });
+    }
+
+    /* Navega a la página anterior del cómic */
+    function previousPage() {
+      if (currentPage > 0) {
+        currentPage--;  // Decrementa la página
+        loadComic();  // Recarga el cómic con la nueva página
+      }
+    }
+
+    /* Navega a la siguiente página del cómic */
+    function nextPage() {
+      if (currentPage < totalPages - 1) {
+        currentPage++;  // Incrementa la página
+        loadComic();  // Recarga el cómic con la nueva página
+      } else {
+        alert("¡Fin del cómic!");  // Muestra un mensaje si ya no hay más páginas
+      }
+    }
+
+    /* Regresa al inicio del cómic */
+    function goHome() {
+      currentPage = 0;  // Vuelve a la primera página
+      loadComic();  // Recarga el cómic
+    }
+
+    /* Cambia el cómic a uno nuevo */
+    function changeComic(name) {
+      comicName = name;  // Cambia el nombre del cómic
+      currentPage = 0;  // Vuelve a la primera página
+      const select = document.getElementById("comic-selector");
+      select.value = comicName;  // Actualiza el valor del selector
+      loadManifest(loadComic);  // Recarga el manifiesto del cómic
+    }
+
+    /* Carga la lista de cómics disponibles */
+    function loadComicList() {
+      fetch("comics/index.json")  // Obtiene el archivo JSON con la lista de cómics
+        .then(res => res.json())  // Convierte el archivo a formato JSON
+        .then(data => {
+          const select = document.getElementById("comic-selector");  // Obtiene el selector de cómics
+          data.comics.forEach(comic => {
+            const option = document.createElement("option");  // Crea una opción para cada cómic
+            option.value = comic.id;
+            option.textContent = comic.title;
+            select.appendChild(option);  // Agrega la opción al selector
+          });
+
+          select.value = comicName;  // Asegura que el selector tenga el valor correcto
+          
+          select.addEventListener("change", () => {
+            comicName = select.value;  // Actualiza el cómic seleccionado
+            currentPage = 0;  // Vuelve a la primera página
+            loadManifest(loadComic);  // Recarga el cómic
+          });
+        });
+    }
+
+    /* Carga las miniaturas de cómics recientes */
+    function loadRecentComics() {
+      const comics = ["comic1", "comic2", "comic3", "comic4", "comic5"];
+      const container = document.getElementById("recent-comics");
+      container.innerHTML = "";  // Limpia el contenedor de miniaturas
+
+      comics.forEach(name => {
+        const img = document.createElement("img");  // Crea una miniatura
+        img.src = `comics/${name}/0.jpg`;  // Asigna la imagen de la miniatura
+        img.className = "recent-comic";  // Asigna la clase CSS
+        img.onclick = () => {
+          changeComic(name);  // Cambia el cómic al hacer clic en la miniatura
+        };
+        container.appendChild(img);  // Agrega la miniatura al contenedor
+      });
+    }
+
+    /* Carga una pista de Spotify en el contenedor correspondiente */
+    function loadSpotify(trackId) {
+      const container = document.getElementById("spotify-container");
+      container.innerHTML = `<iframe src="https://open.spotify.com/embed/track/${trackId}" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`;
+    }
+
+    /* Ajusta la posición de los subtítulos cuando la imagen del cómic se carga */
+    document.getElementById("comic-img").addEventListener("load", adjustTextPositions);
+    
+    /* Ajusta la posición de los subtítulos cuando la ventana se redimensiona */
+    window.addEventListener("resize", adjustTextPositions);
+    loadComicList();
+    loadRecentComics();
+    loadManifest(loadComic);
+  </script>
+
+<footer>
+    
+  <div style="background-color: #fff0f5; padding: 20px; border-radius: 12px; text-align: center; font-family: sans-serif;">
+      <h2 style="color: #222;">Vous avez aimé cette expérience ?</h2>
+      <p style="font-size: 16px; margin-bottom: 20px;">Découvrez d'autres projets que j'ai créés avec SheInventor 🌈</p>
+      <a href="https://www.instagram.com/sheinventor" target="_blank" style="background-color: #e4405f; color: white; padding: 10px 20px; margin: 5px; border-radius: 8px; text-decoration: none;">Instagram</a>
+      <a href="https://www.youtube.com/@SheInventor" target="_blank" style="background-color: #ff0000; color: white; padding: 10px 20px; margin: 5px; border-radius: 8px; text-decoration: none;">YouTube</a>
+      <a href="https://www.tiktok.com/@sheinventor" target="_blank" style="background-color: #010101; color: white; padding: 10px 20px; margin: 5px; border-radius: 8px; text-decoration: none;">TikTok</a>
+      <p style="margin-top: 20px;">💌 Envie de collaborer ? <a href="mailto:sheinventor11@gmail.com" style="color: #0077cc; text-decoration: underline;">Écrivez-moi ici</a></p>
+    </div>
+    
+</footer>
+</body>
+</html>

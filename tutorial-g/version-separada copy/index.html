@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Atelier: Lámpara láser</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Etapas</h2>
+    <ul>
+      <li class="current" onclick="showModule('modulo1', this)">Etapa 1: ¿Por qué fabricar una lámpara?</li>
+      <li class="future" onclick="showModule('modulo2', this)">Etapa 2: ¿Qué aprenderás?</li>
+      <li class="future" onclick="showModule('modulo3', this)">Etapa 3: Materiales necesarios</li>
+      <li class="future" onclick="showModule('modulo4', this)">Etapa 4: Concepción de la lámpara</li>
+      <li class="future" onclick="showModule('modulo5', this)">Etapa 5: Corte láser</li>
+      <li class="future" onclick="showModule('modulo6', this)">Etapa 6: Ensamblaje</li>
+      <li class="future" onclick="showModule('modulo7', this)">Etapa 7: Circuito LED</li>
+      <li class="future" onclick="showModule('modulo8', this)">Etapa 8: Personalización</li>
+      <li class="future" onclick="showModule('modulo9', this)">Etapa 9: Escenario guiado</li>
+    </ul>
+  </div>
+
+  <div class="main-content">
+    <header>
+      <h1>Atelier: Fabrica tu lámpara con corte láser</h1>
+      <p>Un taller práctico para aprender diseño, electrónica básica y fabricación digital</p>
+    </header>
+
+    <section id="modulo1" class="module">
+      <h2>Etapa 1: ¿Por qué fabricar una lámpara?</h2>
+      <p>Descubre el valor de hacer tu propia lámpara:</p>
+      <ul>
+        <li>Conocer la fabricación digital</li>
+        <li>Conectar diseño, electrónica y trabajo manual</li>
+        <li>Reducir residuos creando objetos útiles y reparables</li>
+      </ul>
+    </section>
+
+    <section id="modulo2" class="module">
+      <h2>Etapa 2: ¿Qué aprenderás?</h2>
+      <ul>
+        <li>Dibujo vectorial con Inkscape o Onshape</li>
+        <li>Funcionamiento de una cortadora láser</li>
+        <li>Montaje de un circuito LED básico</li>
+        <li>Ensamblaje de un objeto 3D</li>
+      </ul>
+    </section>
+
+    <section id="modulo3" class="module">
+      <h2>Etapa 3: Materiales necesarios</h2>
+      <p><strong>Material:</strong></p>
+      <ul>
+        <li>1 placa de MDF o acrílico (3 mm, 30x30 cm)</li>
+        <li>1 LED o tira LED (5V o 12V)</li>
+        <li>1 resistencia adecuada (si es LED sola)</li>
+        <li>Soporte de pila o conector USB</li>
+        <li>Cables, interruptor (opcional), cinta aislante o funda termocontraíble</li>
+        <li>Acceso a cortadora láser</li>
+        <li>Software: Inkscape o Onshape</li>
+      </ul>
+    </section>
+
+    <section id="modulo4" class="module">
+      <h2>Etapa 4: Concepción de la lámpara</h2>
+      <p><strong>Duración: ~45 minutos</strong></p>
+      <p>Elige tu herramienta:</p>
+      <ul>
+        <li><strong>Inkscape</strong>: crea un modelo 2D para ensamblar</li>
+        <li><strong>Onshape</strong>: diseño 3D exportado en DXF</li>
+      </ul>
+      <p><em>💡 Consejo: Usa uniones a presión para evitar pegamento.</em></p>
+    </section>
+
+    <section id="modulo5" class="module">
+      <h2>Etapa 5: Corte láser</h2>
+      <p><strong>Duración: ~30 minutos</strong></p>
+      <ul>
+        <li>Prepara el archivo (SVG o DXF)</li>
+        <li>Configura la máquina según el material</li>
+        <li>Respeta todas las normas de seguridad</li>
+      </ul>
+    </section>
+
+    <section id="modulo6" class="module">
+      <h2>Etapa 6: Ensamblaje</h2>
+      <p><strong>Duración: ~20 minutos</strong></p>
+      <ul>
+        <li>Une las piezas cortadas</li>
+        <li>Asegúrate de que se mantenga firme</li>
+        <li>Usa pegamento si es necesario</li>
+      </ul>
+    </section>
+
+    <section id="modulo7" class="module">
+      <h2>Etapa 7: Circuito LED</h2>
+      <p><strong>Duración: ~30 minutos</strong></p>
+      <ul>
+        <li>Identifica los polos de la LED</li>
+        <li>Conecta con los cables y la fuente de energía</li>
+        <li>Agrega un interruptor si deseas</li>
+        <li>Aísla las conexiones eléctricas</li>
+      </ul>
+    </section>
+
+    <section id="modulo8" class="module">
+      <h2>Etapa 8: Personalización</h2>
+      <p><strong>Duración: ~15 minutos (opcional)</strong></p>
+      <ul>
+        <li>Pinta tu lámpara</li>
+        <li>Graba detalles con láser</li>
+        <li>Agrega papel calado o filtros de luz</li>
+      </ul>
+    </section>
+
+    <section id="modulo9" class="module">
+      <h2>Etapa 9: Escenario guiado</h2>
+      <p>Esta es la hoja de ruta recomendada del taller, paso a paso. Puedes seguirla como guía general del proceso.</p>
+    </section>
+
+    <footer>
+      © 2025 Sheinventor. Hecho con 💡 y pasión por aprender haciendo.
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

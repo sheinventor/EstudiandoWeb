@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sheinventor</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Temas</h2>
+    <ul>
+      <li class="current" onclick="showModule('modulo1', this)">Módulo 1: ¿Qué es el prototipado?</li>
+      <li class="future" onclick="showModule('modulo2', this)">Módulo 2: Herramientas para prototipar</li>
+      <li class="future" onclick="showModule('modulo3', this)">Módulo 3: Primer prototipo</li>
+    </ul>
+  </div>
+
+  <div class="main-content">
+    <header>
+      <h1>Prototipa Juntas</h1>
+      <p>Un espacio para aprender prototipado rápido entre mujeres</p>
+    </header>
+
+    <section id="modulo1" class="module">
+      <h2>Módulo 1: ¿Qué es el prototipado?</h2>
+      <p>Aprende qué es el prototipado rápido, su importancia y cómo aplicarlo en tus ideas.</p>
+      <iframe width="100%" height="315" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+    </section>
+
+    <section id="modulo2" class="module">
+      <h2>Módulo 2: Herramientas para prototipar</h2>
+      <p>Explora herramientas gratuitas como Figma, Penpot y Canva para empezar a prototipar sin saber código.</p>
+    </section>
+
+    <section id="modulo3" class="module">
+      <h2>Módulo 3: Primer prototipo</h2>
+      <p>Te guiamos paso a paso para que hagas tu primer prototipo. ¡No tengas miedo de equivocarte!</p>
+    </section>
+
+    <footer>
+      © 2025 Sheinventor. Hecho con 💗 para aprender en comunidad.
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

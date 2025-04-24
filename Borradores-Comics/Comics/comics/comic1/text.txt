@@ -1,0 +1,6 @@
+1|es|9.3|27.8|Hola|3rmo8F54jFF8OgYsqTxm5d
+1|en|9.3|27.8|Hello
+1|fr|9.3|27.8|Bonjour
+2|es|13.9|34.7|¡Bienvenido!
+2|en|13.9|34.7|Welcome!
+2|fr|13.9|34.7|Bienvenue!

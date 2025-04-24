@@ -1,9 +1,0 @@
-{
-    "comics": [
-      { "id": "comic1", "title": "Cómic 1" },
-      { "id": "comic2", "title": "Cómic 2" },
-      { "id": "comic3", "title": "Cómic 3" },
-      { "id": "comic4", "title": "Cómic 4" },
-      { "id": "comic5", "title": "Cómic 5" }
-    ]
-  }

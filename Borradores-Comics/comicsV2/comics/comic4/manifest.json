@@ -1,0 +1,57 @@
+{
+  "title": "Otro Comic",
+  "pages": 11,
+  "dialogs": [
+    { "page": 1, "lang": "es", "x": 50, "y": 0, "text": "Sabíamos que Lorena y su amigo pasaban mucho tiempo juntos", "track": "7ouMYWpwJ422jRcDASZB7P"},
+    { "page": 1, "lang": "fr", "x": 50, "y": 20, "text": "Nous savions que Lorena et son ami passaient beaucoup de temps ensemble","track": "7ouMYWpwJ422jRcDASZB7P"},
+    { "page": 1, "lang": "en", "x": 50, "y": 20, "text": "We knew Lorena and her friend spent a lot of time together", "track": "7ouMYWpwJ422jRcDASZB7P" },
+    { "page": 2, "lang": "es", "x": 50, "y": 20, "text": "Y llegamos a sospechar de otro interés" },
+    { "page": 2, "lang": "fr", "x": 50, "y": 20, "text": "Et nous avons commencé à soupçonner un autre intérêt" },
+    { "page": 2, "lang": "en", "x": 50, "y": 20, "text": "And we began to suspect something more" },
+    
+    { "page": 3, "lang": "es", "x": 50, "y": 20, "text": "Pero al preguntar, la realidad fue cruda" },
+    { "page": 3, "lang": "fr", "x": 50, "y": 20, "text": "Mais en demandant, la réalité fut brutale" },
+    { "page": 3, "lang": "en", "x": 50, "y": 20, "text": "But when we asked, the truth was harsh" },
+    
+    { "page": 3, "lang": "es", "x": 70, "y": 80, "text": "Dijo que con nuestra amistad era suficiente" },
+    { "page": 3, "lang": "fr", "x": 70, "y": 80, "text": "Elle a dit que notre amitié suffisait" },
+    { "page": 3, "lang": "en", "x": 70, "y": 80, "text": "She said our friendship was enough" },
+    
+    { "page": 4, "lang": "es", "x": 0, "y": 5, "text": "Porque él solo quiere estar en su casa" },
+    { "page": 4, "lang": "fr", "x": 0, "y": 5, "text": "Parce qu'il veut juste rester chez lui" },
+    { "page": 4, "lang": "en", "x": 0, "y": 5, "text": "Because he only wants to stay home" },
+    
+    { "page": 4, "lang": "es", "x": 40, "y": 80, "text": "Mientras yo quiero comerme al mundo" },
+    { "page": 4, "lang": "fr", "x": 40, "y": 80, "text": "Alors que moi je veux dévorer le monde" },
+    { "page": 4, "lang": "en", "x": 40, "y": 80, "text": "While I want to conquer the world" },
+    
+    { "page": 5, "lang": "es", "x": 50, "y": 20, "text": "Aún sigues con el corazón roto" },
+    { "page": 5, "lang": "fr", "x": 50, "y": 20, "text": "Tu as encore le cœur brisé" },
+    { "page": 5, "lang": "en", "x": 50, "y": 20, "text": "You're still heartbroken" },
+    
+    { "page": 5, "lang": "es", "x": 50, "y": 90, "text": "Yo sé bien cómo es eso" },
+    { "page": 5, "lang": "fr", "x": 50, "y": 90, "text": "Je sais bien ce que c'est" },
+    { "page": 5, "lang": "en", "x": 50, "y": 90, "text": "I know exactly how that feels" },
+    
+    { "page": 6, "lang": "es", "x": 50, "y": 20, "text": "Lorena, ya pasó un mes" },
+    { "page": 6, "lang": "fr", "x": 50, "y": 20, "text": "Lorena, un mois est déjà passé" },
+    { "page": 6, "lang": "en", "x": 50, "y": 20, "text": "Lorena, it's been a month already" },
+    
+    { "page": 6, "lang": "es", "x": 50, "y": 90, "text": "El sitio ya está listo, falta grabar" },
+    { "page": 6, "lang": "fr", "x": 50, "y": 90, "text": "Le lieu est prêt, il ne reste plus qu'à enregistrer" },
+    { "page": 6, "lang": "en", "x": 50, "y": 90, "text": "The location is ready, we just need to record" },
+    
+    { "page": 7, "lang": "es", "x": 50, "y": 20, "text": "Pero no conozco mejor remedio para el dolor" },
+    { "page": 7, "lang": "fr", "x": 50, "y": 20, "text": "Mais je ne connais pas de meilleur remède à la douleur" },
+    { "page": 7, "lang": "en", "x": 50, "y": 20, "text": "But I know no better remedy for pain" },
+    
+    { "page": 8, "lang": "es", "x": 50, "y": 20, "text": "Que darle un propósito" },
+    { "page": 8, "lang": "fr", "x": 50, "y": 20, "text": "Que lui donner un but" },
+    { "page": 8, "lang": "en", "x": 50, "y": 20, "text": "Than to give it a purpose" },
+    
+    { "page": 9, "lang": "es", "x": 50, "y": 20, "text": "Que mi tristeza sirva para algo" },
+    { "page": 9, "lang": "fr", "x": 50, "y": 20, "text": "Que ma tristesse serve à quelque chose" },
+    { "page": 9, "lang": "en", "x": 50, "y": 20, "text": "Let my sadness be for something" }
+  
+  ]
+}

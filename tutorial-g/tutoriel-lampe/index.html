@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Atelier : Fabrique ta lampe</title>
+  <link rel="stylesheet" href="style.css" />
+  
+</head>
+<body>
+  <header>
+    <h1>Atelier : Fabrique ta lampe avec découpe laser</h1>
+    <p>Un atelier pour découvrir la fabrication numérique et l’électronique de manière créative</p>
+  </header>
+  <div class="sidebar">
+    <h2>Étapes</h2>
+    <ul>
+      <li class="current" onclick="showModule('module1', this)">Étape 1 : Pourquoi fabriquer une lampe ?</li>
+      <li class="future" onclick="showModule('module2', this)">Étape 2 : Ce que tu vas apprendre</li>
+      <li class="future" onclick="showModule('module3', this)">Étape 3 : Matériel nécessaire</li>
+      <li class="future" onclick="showModule('module4', this)">Étape 4 : Conception</li>
+      <li class="future" onclick="showModule('module5', this)">Étape 5 : Découpe laser</li>
+      <li class="future" onclick="showModule('module6', this)">Étape 6 : Assemblage</li>
+      <li class="future" onclick="showModule('module7', this)">Étape 7 : Circuit LED</li>
+      <li class="future" onclick="showModule('module8', this)">Étape 8 : Personnalisation</li>
+      <li class="future" onclick="showModule('module9', this)">Étape 9 : Scénario guidé</li>
+    </ul>
+  </div>
+
+  <div class="main-content">
+    <section id="module1" class="module">
+      <h2>Étape 1 : Pourquoi fabriquer une lampe ?</h2>
+      <p>Fabriquer une lampe soi-même, c’est :</p>
+      <ul>
+        <li>Découvrir la fabrication numérique</li>
+        <li>Lier design, électronique et artisanat</li>
+        <li>Réduire les déchets avec des objets utiles et réparables</li>
+      </ul>
+      <img src="IMAGE_URL" alt="Lampe fabriquée à la main" width="100%" />
+    </section>
+
+    <section id="module2" class="module">
+      <h2>Étape 2 : Ce que tu vas apprendre</h2>
+      <ul>
+        <li>Le dessin vectoriel (Inkscape ou Onshape)</li>
+        <li>Utiliser une découpeuse laser</li>
+        <li>Créer un circuit LED simple</li>
+        <li>Assembler un objet en 3D</li>
+      </ul>
+      <iframe width="100%" height="315" src="VIDEO_URL_1" frameborder="0" allowfullscreen></iframe>
+    </section>
+
+    <section id="module3" class="module">
+      <h2>Étape 3 : Matériel nécessaire</h2>
+      <ul>
+        <li>Plaque MDF ou acrylique (3 mm, 30x30 cm)</li>
+        <li>LED ou bande LED (5V ou 12V)</li>
+        <li>Résistance adaptée (si LED seule)</li>
+        <li>Support pile ou prise USB</li>
+        <li>Fils, interrupteur (optionnel), scotch isolant ou gaine thermo</li>
+        <li>Logiciel : Inkscape ou Onshape</li>
+      </ul>
+      <img src="IMAGE_URL_2" alt="Matériel électronique pour lampe" width="100%" />
+    </section>
+
+    <section id="module4" class="module">
+      <h2>Étape 4 : Conception</h2>
+      <p><strong>Durée : environ 45 minutes</strong></p>
+      <ul>
+        <li>Utilise Inkscape pour créer un modèle 2D</li>
+        <li>Ou Onshape pour une conception 3D à aplatir en DXF</li>
+      </ul>
+      <p>💡 <em>Astuce : Favorise les joints emboîtables (press-fit) pour éviter la colle</em></p>
+      <iframe width="100%" height="315" src="VIDEO_URL_2" frameborder="0" allowfullscreen></iframe>
+    </section>
+
+    <section id="module5" class="module">
+      <h2>Étape 5 : Découpe laser</h2>
+      <p><strong>Durée : 30 minutes</strong></p>
+      <ul>
+        <li>Prépare le fichier en SVG ou DXF</li>
+        <li>Configure la machine selon ton matériau</li>
+        <li>Respecte les consignes de sécurité</li>
+      </ul>
+      <img src="IMAGE_URL_3" alt="Découpe laser en action" width="100%" />
+    </section>
+
+    <section id="module6" class="module">
+      <h2>Étape 6 : Assemblage</h2>
+      <p><strong>Durée : 20 minutes</strong></p>
+      <ul>
+        <li>Assemble les pièces découpées</li>
+        <li>Teste la solidité sans colle</li>
+        <li>Ajoute de la colle si besoin</li>
+      </ul>
+      <iframe width="100%" height="315" src="VIDEO_URL_3" frameborder="0" allowfullscreen></iframe>
+    </section>
+
+    <section id="module7" class="module">
+      <h2>Étape 7 : Circuit LED</h2>
+      <p><strong>Durée : 30 minutes</strong></p>
+      <ul>
+        <li>Repère les polarités (+ / -)</li>
+        <li>Soude les fils à la LED et à l’alimentation</li>
+        <li>Ajoute un interrupteur si tu veux</li>
+        <li>Isole les connexions</li>
+      </ul>
+      <img src="IMAGE_URL_4" alt="Montage d’un circuit LED simple" width="100%" />
+    </section>
+
+    <section id="module8" class="module">
+      <h2>Étape 8 : Personnalisation</h2>
+      <p><strong>Durée : 15 minutes (optionnel)</strong></p>
+      <ul>
+        <li>Peins ta lampe</li>
+        <li>Grave des motifs</li>
+        <li>Ajoute du papier calque ou des filtres</li>
+      </ul>
+      <iframe width="100%" height="315" src="VIDEO_URL_4" frameborder="0" allowfullscreen></iframe>
+    </section>
+
+    <section id="module9" class="module">
+      <h2>Étape 9 : Scénario guidé</h2>
+      <p>Voici l’ordre recommandé pour réaliser le projet :</p>
+      <ol>
+        <li>Choix du design (Inkscape / Onshape)</li>
+        <li>Préparation du fichier</li>
+        <li>Découpe laser</li>
+        <li>Assemblage de la structure</li>
+        <li>Montage du circuit LED</li>
+        <li>Test de fonctionnement</li>
+        <li>Personnalisation (si souhaité)</li>
+      </ol>
+    </section>
+
+    <footer>
+      © 2025 Sheinventor. Fabriqué avec 💡 et passion pour le DIY.
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

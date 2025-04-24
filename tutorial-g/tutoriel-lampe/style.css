@@ -1,0 +1,116 @@
+/* Global reset */
+* {
+  box-sizing: border-box;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #ffffff;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header arriba del todo */
+header {
+  background-color: #290633;
+  padding: 20px;
+  text-align: center;
+  border-bottom: 4px solid #ffffff;
+}
+header h1 {
+  margin: 0;
+  color: #501c55;
+}
+header p {
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+/* Layout principal (sidebar + contenido) */
+.container {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  min-height: 0;
+}
+
+/* Sidebar fijo a la izquierda */
+.sidebar {
+  width: 250px;
+  background-color: #8d4e96;
+  padding: 20px;
+  flex-shrink: 0;
+}
+.sidebar h2 {
+  color: #ffffff;
+}
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+.sidebar li {
+  margin: 10px 0;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.sidebar .current {
+  background-color: #fcd6e4;
+  font-weight: bold;
+  color: #78328a;
+}
+.sidebar .future {
+  background-color: #fdf3f6;
+  color: #4e2a5c;
+}
+
+/* Contenido principal */
+.main-content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/* Módulo visible */
+.module {
+  background-color: #ffffff;
+  border: 1px solid #f3cbd3;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.05);
+  display: none; /* ocultos por defecto */
+}
+
+/* Footer siempre abajo */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #f9c8d9;
+  color: #3b163b;
+  font-size: 14px;
+  margin-top: auto;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .sidebar li {
+    margin: 5px;
+    font-size: 14px;
+  }
+}

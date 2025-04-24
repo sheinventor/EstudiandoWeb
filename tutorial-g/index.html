@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mi Tutorial Online</title>
+  <style>
+    /* Estilo base */
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Helvetica Neue', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fdfdfd;
+      color: #333;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      font-weight: 600;
+      color: #222;
+    }
+
+    /* Barra de progreso */
+    .progress-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      background: #eee;
+      z-index: 10;
+    }
+    .progress-bar {
+      height: 6px;
+      background-color: #4caf50;
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+
+    /* Navegación de etapas */
+    .etapas {
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem;
+      background: #fff;
+      position: sticky;
+      top: 6px;
+      z-index: 5;
+      border-bottom: 1px solid #ddd;
+    }
+    .etapa {
+      flex: 1;
+      text-align: center;
+      font-weight: bold;
+      opacity: 0.4;
+      transition: opacity 0.3s ease;
+    }
+    .etapa.active {
+      opacity: 1;
+      color: #4caf50;
+    }
+
+    /* Contenido principal */
+    .contenedor {
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem 1rem;
+    }
+    .bloque {
+      margin-bottom: 3rem;
+      padding: 1.5rem;
+      border-left: 4px solid #4caf50;
+      background: #fff;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    }
+    .tipo {
+      font-size: 0.8rem;
+      font-weight: bold;
+      color: #4caf50;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Barra de progreso -->
+  <div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <!-- Navegación de etapas -->
+  <div class="etapas">
+    <div class="etapa active" id="step1">Tutorial</div>
+    <div class="etapa" id="step2">How-To</div>
+    <div class="etapa" id="step3">Explicación</div>
+    <div class="etapa" id="step4">Referencia</div>
+  </div>
+
+  <!-- Contenido principal -->
+  <div class="contenedor">
+
+    <!-- Bloque tipo TUTORIAL -->
+    <div class="bloque">
+      <div class="tipo">Tutorial</div>
+      <h2>Crear tu primer componente HTML</h2>
+      <p>En este paso aprenderás cómo crear una estructura básica de un componente con HTML y estilo limpio.</p>
+      <pre><code>&lt;div class="card"&gt;Hola Mundo&lt;/div&gt;</code></pre>
+    </div>
+
+    <!-- Bloque tipo HOW-TO -->
+    <div class="bloque">
+      <div class="tipo">How-To</div>
+      <h2>Cómo centrar un elemento con CSS</h2>
+      <p>Utiliza Flexbox para centrar fácilmente cualquier elemento.</p>
+      <pre><code>display: flex;
+justify-content: center;
+align-items: center;</code></pre>
+    </div>
+
+    <!-- Bloque tipo EXPLICACIÓN -->
+    <div class="bloque">
+      <div class="tipo">Explicación</div>
+      <h2>¿Qué es Flexbox?</h2>
+      <p>Flexbox es un modelo de diseño unidimensional que te permite distribuir espacio y alinear elementos en contenedores.</p>
+    </div>
+
+    <!-- Bloque tipo REFERENCIA -->
+    <div class="bloque">
+      <div class="tipo">Referencia</div>
+      <h2>Propiedades de Flexbox</h2>
+      <ul>
+        <li><code>display</code></li>
+        <li><code>justify-content</code></li>
+        <li><code>align-items</code></li>
+        <li><code>flex-direction</code></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- Script para barra de progreso dinámica -->
+  <script>
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = (scrollTop / docHeight) * 100;
+      document.getElementById('progressBar').style.width = scrollPercent + '%';
+    });
+  </script>
+
+</body>
+</html>
