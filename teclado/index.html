@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Teclado Guitarra Mágica</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 50px;
+    }
+    h1 {
+      font-size: 2em;
+    }
+    .info {
+      margin: 20px auto;
+      font-size: 1.2em;
+      color: #ccc;
+    }
+    .activated {
+      background: #4caf50;
+      padding: 10px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎸 Guitarra con el Teclado</h1>
+  <p class="info">Haz clic en cualquier parte para activar el sonido.<br>Luego toca cualquier tecla del teclado para escuchar una nota.</p>
+  <p id="status">🎵 Esperando activación...</p>
+
+  <script>
+    let audioCtx;
+    let isActivated = false;
+
+    // Escala pentatónica de Do (frecuencias en Hz)
+    const pentatonicScale = [
+      261.63, // C
+      293.66, // D
+      329.63, // E
+      392.00, // G
+      440.00, // A
+      523.25, // C (octava)
+      587.33, // D
+      659.25, // E
+      783.99, // G
+      880.00  // A
+    ];
+
+    // Inicializar contexto de audio al primer clic
+    window.addEventListener('click', () => {
+      if (!isActivated) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        document.getElementById('status').textContent = "✅ Activado: toca cualquier tecla para hacer música";
+        document.getElementById('status').classList.add("activated");
+        isActivated = true;
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (!isActivated) return;
+
+      // Generar un índice basado en el código de la tecla
+      const charCode = e.key.charCodeAt(0);
+      const index = charCode % pentatonicScale.length;
+      const freq = pentatonicScale[index];
+
+      // Crear y reproducir nota
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = 'triangle'; // suena más como una cuerda
+      osc.frequency.value = freq;
+
+      gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 1);
+
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+
+      osc.start();
+      osc.stop(audioCtx.currentTime + 1);
+    });
+  </script>
+</body>
+</html>

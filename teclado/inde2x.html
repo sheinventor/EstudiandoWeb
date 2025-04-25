@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Teclado Musical Armónico</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      background: #222;
+      color: #fff;
+      padding-top: 50px;
+    }
+    .key {
+      display: inline-block;
+      width: 60px;
+      height: 60px;
+      margin: 10px;
+      line-height: 60px;
+      background: #444;
+      border-radius: 10px;
+      font-size: 24px;
+      transition: transform 0.1s ease;
+    }
+    .key.active {
+      background: #88f;
+      transform: scale(1.2);
+    }
+  </style>
+</head>
+<body>
+  <h1>Presiona una tecla 🎹</h1>
+  <p>Escala de Do mayor: A-S-D-F-G-H-J</p>
+  <div id="keys"></div>
+
+  <script>
+    // Frecuencias de la escala de Do mayor
+    const scale = {
+      'A': 261.63, // C
+      'S': 293.66, // D
+      'D': 329.63, // E
+      'F': 349.23, // F
+      'G': 392.00, // G
+      'H': 440.00, // A
+      'J': 493.88  // B
+    };
+
+    const keysContainer = document.getElementById('keys');
+
+    // Crear visualmente los botones
+    Object.keys(scale).forEach(k => {
+      const div = document.createElement('div');
+      div.className = 'key';
+      div.innerText = k;
+      div.id = `key-${k}`;
+      keysContainer.appendChild(div);
+    });
+
+    function playNote(freq) {
+      const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+
+      osc.type = 'sine';
+      osc.frequency.value = freq;
+
+      gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 1);
+
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+
+      osc.start();
+      osc.stop(audioCtx.currentTime + 1);
+    }
+
+    document.addEventListener('keydown', (e) => {
+      const key = e.key.toUpperCase();
+      if (scale[key]) {
+        playNote(scale[key]);
+
+        const visualKey = document.getElementById(`key-${key}`);
+        visualKey.classList.add('active');
+        setTimeout(() => visualKey.classList.remove('active'), 200);
+      }
+    });
+  </script>
+</body>
+</html>
