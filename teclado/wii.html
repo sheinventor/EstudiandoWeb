@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Teclado Musical Interactivo</title>
+  <script src="https://unpkg.com/tone"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background: #f0f0f0;
+    }
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Teclado Musical</h1>
+  <p>Presiona cualquier tecla para tocar una nota de la canción de Wii Channel</p>
+  <button onclick="startWiiMode()">Activar modo Wii Channel</button>
+  <button onclick="stopWiiMode()">Desactivar modo Wii Channel</button>
+
+  <script>
+    const synths = [
+      new Tone.Synth().toDestination(),
+      new Tone.Synth().toDestination(),
+      new Tone.MembraneSynth().toDestination(),
+      new Tone.MetalSynth().toDestination(),
+      new Tone.FMSynth().toDestination()
+    ];
+
+    let instrumentIndex = 0;
+    let wiiMode = false;
+    let wiiIndex = 0;
+
+    const wiiMelody = [
+      "F#4", "A4", "C#4", "A4", "F#4", "D4", "D4", "D4",
+      "C#4", "D4", "F#4", "A4", "C#4", "A4", "F4", "E5", "D#4", "D4",
+      "G#4", "C#4", "F#4", "G#4", "C#4", "G#4", "F#4", "C#4", "C4", "C4", "C4", "D#4", "D4",
+      "C#3", "A5", "C#4", "A4", "F4", "E4", "E4", "E4",
+      "F#4", "A4", "C#4", "A4", "F#4", "C#4", "B3",
+      "B3", "G4", "D4", "C#4",
+      "B3", "G4", "C#4", "A5", "F#4", "C#3", "B2",
+      "F4", "D4", "B3", "E4", "E4",
+      "A#4", "B3", "C#4", "D4", "F#4", "A4",
+      "A4", "A#4", "B3", "A#4", "B3",
+      "A4", "A#4", "B3", "F#5", "C#4", "A#4", "B3",
+      "B3", "C4", "C#4", "C#4", "C4", "C4",
+      "G#5", "D#5", "C#4", "D#4", "B2",
+      "C#4", "D4", "A5", "D4", "E4", "E4", "E4"
+    ];
+
+    function playNote(note) {
+      const synth = synths[instrumentIndex % synths.length];
+      synth.triggerAttackRelease(note, "8n");
+    }
+
+    function startWiiMode() {
+      wiiMode = true;
+      wiiIndex = 0;
+    }
+
+    function stopWiiMode() {
+      wiiMode = false;
+    }
+
+    document.addEventListener("keydown", () => {
+      if (wiiMode) {
+        if (wiiIndex < wiiMelody.length) {
+          playNote(wiiMelody[wiiIndex]);
+          wiiIndex++;
+        } else {
+          wiiIndex = 0; // Reinicia la melodía si termina
+        }
+      } else {
+        // Tocar una nota aleatoria en modo libre
+        const notes = ["C4", "D4", "E4", "F4", "G4", "A4", "B4", "C5"];
+        const randomNote = notes[Math.floor(Math.random() * notes.length)];
+        playNote(randomNote);
+      }
+    });
+  </script>
+</body>
+</html>
