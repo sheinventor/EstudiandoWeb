@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Teclado Multi-Instrumento + Wii Channel</title>
+  <script src="https://unpkg.com/tone/build/Tone.js"></script>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 30px;
+    }
+    h1 {
+      font-size: 2em;
+    }
+    select, button {
+      font-size: 1em;
+      margin: 10px;
+      padding: 10px;
+    }
+    .info {
+      margin: 20px auto;
+      font-size: 1.1em;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎹 Teclado Multi-Instrumento</h1>
+  <p class="info">Haz clic en "Activar Audio", luego presiona cualquier tecla o reproduce la canción del Canal Wii.</p>
+
+  <button onclick="activarAudio()">🎵 Activar Audio</button><br>
+
+  <label>🎼 Selecciona instrumento: </label>
+  <select id="instrumentoSelect">
+    <option value="Synth">Synth</option>
+    <option value="AMSynth">AMSynth</option>
+    <option value="FMSynth">FMSynth</option>
+    <option value="DuoSynth">DuoSynth</option>
+    <option value="MembraneSynth">MembraneSynth</option>
+    <option value="PluckSynth">PluckSynth</option>
+  </select>
+
+  <label>
+    <input type="checkbox" id="multiInstrumento" />
+    🎲 Modo multi-instrumento
+  </label><br><br>
+
+  <button onclick="reproducirWii()">🎶 Reproducir canción Wii</button>
+
+  <script>
+    let instrumentosDisponibles = [
+      "Synth", "AMSynth", "FMSynth", "DuoSynth", "MembraneSynth", "PluckSynth"
+    ];
+
+    let instrumentos = {};
+    let activado = false;
+
+    // Inicializamos cada instrumento
+    for (let nombre of instrumentosDisponibles) {
+      instrumentos[nombre] = new Tone[nombre]().toDestination();
+    }
+
+    const notas = ['C4', 'D4', 'E4', 'G4', 'A4', 'C5', 'D5', 'E5', 'G5', 'A5'];
+
+    function activarAudio() {
+      Tone.start().then(() => {
+        activado = true;
+        alert('¡Audio activado! Ahora toca el teclado o dale al botón de la canción Wii.');
+      });
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (!activado) return;
+
+      const charCode = e.key.charCodeAt(0);
+      const nota = notas[charCode % notas.length];
+
+      const multi = document.getElementById("multiInstrumento").checked;
+      if (multi) {
+        const nombreInstrumento = instrumentosDisponibles[charCode % instrumentosDisponibles.length];
+        instrumentos[nombreInstrumento].triggerAttackRelease(nota, "8n");
+      } else {
+        const nombreSeleccionado = document.getElementById("instrumentoSelect").value;
+        instrumentos[nombreSeleccionado].triggerAttackRelease(nota, "8n");
+      }
+    });
+
+    // Secuencia simplificada del Canal Wii
+    const wiiMelody = [
+      'C5', 'E5', 'G5', 'A5', 'G5', 'E5',
+      'C5', 'E5', 'G5', 'A5', 'G5', 'E5',
+      'F5', 'A5', 'C6', 'D6', 'C6', 'A5',
+      'F5', 'A5', 'C6', 'D6', 'C6', 'A5'
+    ];
+
+    function reproducirWii() {
+      if (!activado) return;
+
+      const multi = document.getElementById("multiInstrumento").checked;
+      const nombreSeleccionado = document.getElementById("instrumentoSelect").value;
+
+      let tiempo = 0;
+
+      wiiMelody.forEach((nota, index) => {
+        setTimeout(() => {
+          let instrumento;
+
+          if (multi) {
+            const nombre = instrumentosDisponibles[index % instrumentosDisponibles.length];
+            instrumento = instrumentos[nombre];
+          } else {
+            instrumento = instrumentos[nombreSeleccionado];
+          }
+
+          instrumento.triggerAttackRelease(nota, "8n");
+        }, tiempo);
+        tiempo += 350; // ritmo regular
+      });
+    }
+  </script>
+</body>
+</html>
