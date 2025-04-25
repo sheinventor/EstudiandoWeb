@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Teclado Multi-Instrumento</title>
+  <script src="https://unpkg.com/tone/build/Tone.js"></script>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 30px;
+    }
+    h1 {
+      font-size: 2em;
+    }
+    select, button {
+      font-size: 1em;
+      margin: 10px;
+      padding: 10px;
+    }
+    .info {
+      margin: 20px auto;
+      font-size: 1.1em;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎹 Teclado Multi-Instrumento</h1>
+  <p class="info">Haz clic en "Activar Audio", luego presiona cualquier tecla.<br>Puedes elegir un instrumento o activar el modo multi-instrumento.</p>
+
+  <button onclick="activarAudio()">🎵 Activar Audio</button><br>
+
+  <label>🎼 Selecciona instrumento: </label>
+  <select id="instrumentoSelect">
+    <option value="Synth">Synth</option>
+    <option value="AMSynth">AMSynth</option>
+    <option value="FMSynth">FMSynth</option>
+    <option value="DuoSynth">DuoSynth</option>
+    <option value="MembraneSynth">MembraneSynth</option>
+    <option value="PluckSynth">PluckSynth</option>
+  </select>
+
+  <label>
+    <input type="checkbox" id="multiInstrumento" />
+    🎲 Modo multi-instrumento
+  </label>
+
+  <script>
+    let instrumentosDisponibles = [
+      "Synth", "AMSynth", "FMSynth", "DuoSynth", "MembraneSynth", "PluckSynth"
+    ];
+
+    let instrumentos = {};
+    let activado = false;
+
+    // Inicializamos cada instrumento
+    for (let nombre of instrumentosDisponibles) {
+      instrumentos[nombre] = new Tone[nombre]().toDestination();
+    }
+
+    const notas = ['C4', 'D4', 'E4', 'G4', 'A4', 'C5', 'D5', 'E5', 'G5', 'A5'];
+
+    function activarAudio() {
+      Tone.start().then(() => {
+        activado = true;
+        alert('¡Audio activado! Ahora toca el teclado.');
+      });
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (!activado) return;
+
+      const charCode = e.key.charCodeAt(0);
+      const nota = notas[charCode % notas.length];
+
+      const multi = document.getElementById("multiInstrumento").checked;
+
+      if (multi) {
+        // instrumento aleatorio
+        const nombreInstrumento = instrumentosDisponibles[charCode % instrumentosDisponibles.length];
+        instrumentos[nombreInstrumento].triggerAttackRelease(nota, "8n");
+      } else {
+        const nombreSeleccionado = document.getElementById("instrumentoSelect").value;
+        instrumentos[nombreSeleccionado].triggerAttackRelease(nota, "8n");
+      }
+    });
+  </script>
+</body>
+</html>
