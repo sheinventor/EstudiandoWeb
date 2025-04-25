@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Teclado Musical Interactivo</title>
+  <script src="https://unpkg.com/tone"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background: #f0f0f0;
+    }
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Teclado Musical</h1>
+  <p>Presiona cualquier tecla para tocar una nota de la canción</p>
+  <button onclick="startSongMode()">Activar canción de la tormenta</button>
+  <button onclick="stopSongMode()">Desactivar canción</button>
+
+  <script>
+    const synths = [
+      new Tone.Synth().toDestination(),
+      new Tone.Synth().toDestination(),
+      new Tone.MembraneSynth().toDestination(),
+      new Tone.MetalSynth().toDestination(),
+      new Tone.FMSynth().toDestination()
+    ];
+
+    let instrumentIndex = 0;
+    let songMode = false;
+    let songIndex = 0;
+
+    const stormSong = [
+      "D4", "F4", "D4", "D4", "F4", "D4",
+      "E4", "F4", "E4", "F4", "E4", "C4", "A3",
+      "A3", "D4", "F4", "G4", "A4",
+      "A3", "D4", "F4", "G4", "E4",
+
+      "D4", "F4", "D4", "D4", "F4", "D4",
+      "E4", "F4", "E4", "F4", "E4", "C4", "A3",
+      "A3", "D4", "F4", "G4", "A4",
+      "A3", "D4"
+    ];
+
+    function playNote(note) {
+      const synth = synths[instrumentIndex % synths.length];
+      synth.triggerAttackRelease(note, "8n");
+    }
+
+    function startSongMode() {
+      songMode = true;
+      songIndex = 0;
+    }
+
+    function stopSongMode() {
+      songMode = false;
+    }
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "i" || event.key === "I") {
+        instrumentIndex = (instrumentIndex + 1) % synths.length;
+        console.log("Instrumento cambiado a:", instrumentIndex);
+        return;
+      }
+
+      if (songMode) {
+        if (songIndex < stormSong.length) {
+          playNote(stormSong[songIndex]);
+          songIndex++;
+        } else {
+          songIndex = 0;
+        }
+      } else {
+        const notes = ["C4", "D4", "E4", "F4", "G4", "A4", "B4", "C5"];
+        const randomNote = notes[Math.floor(Math.random() * notes.length)];
+        playNote(randomNote);
+      }
+    });
+  </script>
+</body>
+</html>
