@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>SheInventor</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background-color: #3b163b;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      transition: background-color 0.5s;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 10px 20px;
+    }
+
+    select {
+      padding: 5px;
+      background-color: #fff;
+      border: none;
+      color: #3b163b;
+      font-weight: bold;
+      border-radius: 5px;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+    }
+
+    .menu {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 20px;
+      gap: 15px;
+    }
+
+    .menu button {
+      background: none;
+      border: 2px solid white;
+      color: white;
+      padding: 10px 20px;
+      font-size: 18px;
+      cursor: pointer;
+      border-radius: 10px;
+      transition: background-color 0.3s;
+    }
+
+    .menu button:hover {
+      background-color: white;
+      color: #3b163b;
+    }
+
+    .foco-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #foco {
+      width: 200px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .agitar {
+      animation: shake 0.5s;
+    }
+
+    @keyframes shake {
+      0% { transform: rotate(0deg); }
+      25% { transform: rotate(5deg); }
+      50% { transform: rotate(-5deg); }
+      75% { transform: rotate(5deg); }
+      100% { transform: rotate(0deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <select id="language">
+      <option value="es">Español 🇪🇸</option>
+      <option value="en">English 🇬🇧</option>
+      <option value="fr">Français 🇫🇷</option>
+    </select>
+  </header>
+
+  <main>
+    <div class="menu">
+      <button>Proyectos</button>
+      <button>Cómics</button>
+      <button>Biblioteca</button>
+      <button>Descargas</button>
+      <button>Tutoriales</button>
+      <button>Contacto</button>
+    </div>
+
+    <div class="foco-container">
+      <img id="foco" src="Sheinventorfoco_Plan de travail 1.png" alt="Foco">
+    </div>
+  </main>
+
+  <script>
+    const foco = document.getElementById('foco');
+    let fondoOscuro = true;
+
+    foco.addEventListener('click', () => {
+      foco.classList.add('agitar');
+      
+      setTimeout(() => {
+        foco.classList.remove('agitar');
+      }, 500);
+
+      fondoOscuro = !fondoOscuro;
+      document.body.style.backgroundColor = fondoOscuro ? '#3b163b' : 'white';
+      document.body.style.color = fondoOscuro ? 'white' : '#3b163b';
+    });
+
+    // Cambio de idioma (ejemplo base)
+    const languageSelect = document.getElementById('language');
+    languageSelect.addEventListener('change', (e) => {
+      alert('Has cambiado el idioma a: ' + e.target.options[e.target.selectedIndex].text);
+      // Aquí podrías cargar traducciones reales en el futuro
+    });
+  </script>
+
+</body>
+</html>

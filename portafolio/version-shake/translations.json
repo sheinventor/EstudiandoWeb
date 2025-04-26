@@ -1,0 +1,27 @@
+{
+    "es": {
+      "projects": "Proyectos",
+      "comics": "Cómics",
+      "library": "Biblioteca",
+      "downloads": "Descargas",
+      "tutorials": "Tutoriales",
+      "contact": "Contacto"
+    },
+    "en": {
+      "projects": "Projects",
+      "comics": "Comics",
+      "library": "Library",
+      "downloads": "Downloads",
+      "tutorials": "Tutorials",
+      "contact": "Contact"
+    },
+    "fr": {
+      "projects": "Projets",
+      "comics": "Bandes dessinées",
+      "library": "Bibliothèque",
+      "downloads": "Téléchargements",
+      "tutorials": "Tutoriels",
+      "contact": "Contact"
+    }
+  }
+  

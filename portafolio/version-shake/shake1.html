@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>SheInventor</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background-color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: background-color 0.5s;
+    }
+    #foco {
+      width: 200px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .agitar {
+      animation: shake 0.5s;
+    }
+    @keyframes shake {
+      0% { transform: rotate(0deg); }
+      25% { transform: rotate(5deg); }
+      50% { transform: rotate(-5deg); }
+      75% { transform: rotate(5deg); }
+      100% { transform: rotate(0deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <img id="foco" src="foco.png" alt="Foco">
+
+  <script>
+    const foco = document.getElementById('foco');
+    let fondoOscuro = false;
+
+    foco.addEventListener('click', () => {
+      foco.classList.add('agitar');
+      
+      setTimeout(() => {
+        foco.classList.remove('agitar');
+      }, 500);
+
+      fondoOscuro = !fondoOscuro;
+      document.body.style.backgroundColor = fondoOscuro ? '#111' : 'white';
+    });
+  </script>
+
+</body>
+</html>
