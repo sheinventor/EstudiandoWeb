@@ -1,42 +1,42 @@
-// Función para cargar el archivo de idioma y aplicar traducciones
+document.addEventListener('DOMContentLoaded', () => {
+  const defaultLang = 'es'; // idioma por defecto
+  const savedLang = localStorage.getItem('lang') || defaultLang;
+
+  loadLanguage(savedLang);
+
+  // Asociar a cada botón
+  document.querySelectorAll('button[data-lang]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const selectedLang = btn.getAttribute('data-lang');
+      localStorage.setItem('lang', selectedLang);
+      loadLanguage(selectedLang);
+    });
+  });
+});
+
+// Carga el JSON de idioma y aplica traducciones
 async function loadLanguage(lang) {
   try {
-    const response = await fetch(`/assets/lang/${lang}.json`);
-    if (!response.ok) {
-      throw new Error(`Error cargando el idioma: ${response.statusText}`);
-    }
+    const response = await fetch(`./assets/lang/${lang}.json`, { cache: 'no-store' });
     const translations = await response.json();
-    translatePage(translations);
+    applyTranslations(translations);
   } catch (error) {
-    console.error('Error al cargar las traducciones:', error);
+    console.error('Error cargando traducciones:', error);
   }
 }
 
-// Función para aplicar las traducciones a los elementos con data-i18n
-function translatePage(translations) {
-  const elements = document.querySelectorAll('[data-i18n]');
-  elements.forEach(el => {
+// Aplica las traducciones a todos los elementos con data-i18n
+function applyTranslations(translations) {
+  document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
     if (translations[key]) {
-      el.innerText = translations[key]; // Usa innerText mejor que textContent si tienes espacios
+      el.innerText = translations[key];
     }
   });
+
+  // Actualiza también el <title> de la página si es necesario
+  if (translations['page_title']) {
+    document.getElementById('page-title').innerText = translations['page_title'];
+    document.title = translations['page_title']; // Para la pestaña
+  }
 }
-
-// Función que cambia el idioma y lo guarda
-function setLanguage(lang) {
-  localStorage.setItem('lang', lang);   // Guarda en localStorage
-  loadLanguage(lang);                  // Carga el nuevo idioma inmediatamente
-}
-
-// Cuando la página esté lista
-document.addEventListener('DOMContentLoaded', () => {
-  // Detecta idioma guardado o usa español
-  const lang = localStorage.getItem('lang') || 'es';
-  loadLanguage(lang);
-
-  // Configura los botones de idioma para que funcionen
-  document.getElementById('btn-es').addEventListener('click', () => setLanguage('es'));
-  document.getElementById('btn-fr').addEventListener('click', () => setLanguage('fr'));
-  document.getElementById('btn-en').addEventListener('click', () => setLanguage('en'));
-});

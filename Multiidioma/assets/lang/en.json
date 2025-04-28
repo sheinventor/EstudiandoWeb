@@ -1,8 +1,8 @@
 {
-    "contact_title": "Contact",
-    "contact_text": "Contact me for more information!",
-    "form_name": "Name:",
-    "form_message": "Message:",
-    "form_submit": "Send"
-  }
-  
+  "page_title": "Contact",
+  "contact_title": "Contact Us",
+  "contact_text": "Get in touch for more information!",
+  "form_name": "Name:",
+  "form_message": "Message:",
+  "form_submit": "Send"
+}

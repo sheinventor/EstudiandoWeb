@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>SheInventor</title>
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <script src="./assets/js/lang.js" defer></script>
+
+</head>
+
+<body>
+
+  <header>
+    <select id="language">
+      <option value="es">Español 🇪🇸</option>
+      <option value="en">English 🇬🇧</option>
+      <option value="fr">Français 🇫🇷</option>
+    </select>
+  </header>
+
+  <main>
+    <div class="logo-container">
+      <img id="logo" src="./assets/photos/foco.png" alt="SheInventor Logo">
+    </div>
+
+    <div class="menu">
+        <a href="contact.html"><button id="contact" data-i18n="contact">Contáctame</button></a>
+        <a href="Presentacion-Canva/index.html"><button id="portfolio" data-i18n="portfolio">Portafolio</button></a>
+        <a href="Comics-Spotify/index.html"><button id="comics" data-i18n="comics">Cómics</button></a>
+        <a href="Biblioteca-Sheinventor/index.html"><button id="downloads" data-i18n="downloads">Biblioteca de descargables</button></a>
+    </div>
+  </main>
+
+  <script>
+    const logo = document.getElementById('logo');
+    const languageSelect = document.getElementById('language');
+    let translations = {};
+    let fondoOscuro = true;
+
+    // Movimiento del logo
+    logo.addEventListener('click', () => {
+      logo.classList.add('agitar');
+      setTimeout(() => {
+        logo.classList.remove('agitar');
+      }, 500);
+
+      fondoOscuro = !fondoOscuro;
+      document.body.style.backgroundColor = fondoOscuro ? '#3b163b' : 'white';
+      document.body.style.color = fondoOscuro ? 'white' : '#3b163b';
+    });
+
+    // Cargar archivo JSON de traducciones
+    async function loadTranslations() {
+      try {
+        const response = await fetch('./assets/lang/translations.json');
+        translations = await response.json();
+      } catch (error) {
+        console.error('Error cargando las traducciones:', error);
+      }
+    }
+
+    // Cambiar los textos según el idioma seleccionado
+    function changeLanguage(lang) {
+      const elements = document.querySelectorAll('[data-i18n]');
+      elements.forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
+      });
+
+      if (translations[lang] && translations[lang].pageTitle) {
+        document.title = translations[lang].pageTitle + " | SheInventor";
+      }
+    }
+
+    // Evento de cambio de idioma
+    languageSelect.addEventListener('change', (e) => {
+      const selectedLang = e.target.value;
+      changeLanguage(selectedLang);
+    });
+
+    // Inicializar: cargar traducciones y poner idioma inicial
+    loadTranslations().then(() => {
+      changeLanguage('es');
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biblioteca SheInventor</title>
+  <!-- Tipografía Titillium Web desde Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Estilos generales para cuerpo y fuentes */
+    body {
+      font-family: 'Titillium Web', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f7f7f7;
+      color: #333;
+    }
+    
+    /* Encabezado de la página */
+    header {
+      background: #3b163b;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    /* Sección introductoria */
+    .intro {
+      padding: 1rem;
+      text-align: center;
+    }
+
+    /* Galería de proyectos con diseño responsivo */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      padding: 1rem;
+    }
+
+    /* Tarjetas individuales de cada proyecto */
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 1rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .card img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+    .card h3 {
+      margin-top: 0.5rem;
+    }
+
+    /* Botones de descarga y enlaces */
+    .buttons {
+      margin-top: 1rem;
+    }
+    .buttons a {
+      display: inline-block;
+      margin-right: 0.5rem;
+      background: #6c1288;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    /* Pie de página */
+    footer {
+      background: #3b163b;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Encabezado principal -->
+  <header>
+    <h1>Biblioteca de Proyectos SheInventor</h1>
+  </header>
+
+<!-- Sección introductoria con botón de apoyo -->
+<div class="intro">
+    <p>Aquí comparto mis proyectos de ciencia, arte y emoción. Puedes explorarlos, descargarlos o apoyarme para seguir creando.</p>
+    <a href="https://ko-fi.com/sheinventor" class="buttons" target="_blank">❤️ Apóyame</a>
+  </div>
+
+  <!-- Contenedor de la galería de proyectos -->
+  <section class="gallery" id="project-gallery">
+    <!-- Las tarjetas de proyecto se cargarán dinámicamente con JavaScript -->
+  </section>
+
+  <!-- Pie de página -->
+  <footer>
+    <p>Con 💜 por SheInventor | Sígueme en redes para más ciencia creativa</p>
+    <div class="social-links">
+      <a href="https://instagram.com/sheinventor" target="_blank">Instagram</a> |
+      <a href="https://youtube.com/@sheinventor" target="_blank">YouTube</a> |
+      <a href="mailto:contacto@sheinventor.com">Formulario de Contacto</a>
+    </div>
+  </footer>
+
+  <script>
+    // Aquí defines tus proyectos como objetos dentro de un arreglo
+    // Para mejorar, a gregar publioco objetivo 
+    const proyectos = [
+      {
+        titulo: "Planner Medicamentos", // Título del proyecto
+        descripcion: "Etiquetas para poder recordar qué medicamentos tomar", // Descripción breve
+        imagen: "tarjetasec/Medicinas.png", // URL de imagen de portada
+        pdf: "https://drive.google.com/drive/folders/1DABzNYm5xs_gd5azo46OoqhFh1AKh_bi?usp=drive_link", // Archivo PDF
+        stl: null // Enlace STL o null si no hay
+      },
+      {
+        titulo: "Habitos Tracker ",
+        descripcion: "Lleva registro de tu periodo, de las veces que vas al gimnasio, o que realizas un habito en el dîa",
+        imagen: "tarjetasec/track.jpg", 
+        pdf: "https://drive.google.com/drive/folders/10KyC0aG2axxNTRSb-jE0xDd3Wi-Cmhy_?usp=sharing",
+        stl: null
+      },
+
+      {
+        titulo: "Reto Agradecimiento 30 dias  ",
+        descripcion: "Este lo hice cuando tenia depresion, me fue de utilidad",
+        imagen: "tarjetasec/agradecer.png", 
+        pdf: "https://drive.google.com/drive/folders/10YRiCtsvJnXki4c1C1uGk1X2YbEPGMqV?usp=drive_link",
+        stl: null
+      },
+
+      {
+        titulo: "Ejercicio de reestructuracion cognitiva  ",
+        descripcion: "Ejercicio compartido por la psicologa Carmen Anchustegui",
+        imagen: "tarjetasec/preview.png", 
+        pdf: "https://drive.google.com/drive/folders/1XIJpcYnpMBsJZ4AWb_WdbDubVOF2gum4?usp=drive_link",
+        stl: null
+      },
+
+
+
+      // 👇 COPIA Y PEGA ESTE FORMATO PARA AGREGAR MÁS PROYECTOS 👇
+      // {
+      //   titulo: "Nombre del Proyecto",
+      //   descripcion: "Descripción breve del proyecto",
+      //   imagen: "URL de imagen o placeholder",
+      //   pdf: "nombre_del_archivo.pdf",
+      //   stl: "link a STL o null"
+      // },
+    ];
+
+    // Este código recorre el arreglo y genera las tarjetas en HTML
+    const gallery = document.getElementById('project-gallery');
+
+    proyectos.forEach(p => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = `
+        <img src="${p.imagen}" alt="${p.titulo}">
+        <h3>${p.titulo}</h3>
+        <p>${p.descripcion}</p>
+        <div class="buttons">
+          ${p.pdf ? `<a href="${p.pdf}" target="_blank">📄 PDF</a>` : ''}
+          ${p.stl ? `<a href="${p.stl}" target="_blank">🔗 STL</a>` : ''}
+        </div>
+      `;
+      gallery.appendChild(card);
+    });
+  </script>
+</body>
+</html>

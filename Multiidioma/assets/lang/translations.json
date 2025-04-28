@@ -1,0 +1,24 @@
+{
+    "es": {
+      "pageTitle": "Inicio",
+      "contact": "Contáctame",
+      "portfolio": "Portafolio",
+      "comics": "Cómics",
+      "downloads": "Biblioteca de descargables"
+    },
+    "en": {
+      "pageTitle": "Home",
+      "contact": "Contact Me",
+      "portfolio": "Portfolio",
+      "comics": "Comics",
+      "downloads": "Download Library"
+    },
+    "fr": {
+      "pageTitle": "Accueil",
+      "contact": "Contactez-moi",
+      "portfolio": "Portefeuille",
+      "comics": "Bandes dessinées",
+      "downloads": "Bibliothèque de téléchargements"
+    }
+  }
+  
