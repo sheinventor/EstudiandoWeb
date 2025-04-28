@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title data-i18n="contact_title">Contacto</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script src="/assets/js/lang.js" defer></script>
+</head>
+<body>
+  <nav>
+    <!-- Botones que llaman correctamente setLanguage -->
+    <button id="btn-es">ES</button>
+    <button id="btn-fr">FR</button>
+    <button id="btn-en">EN</button>
+  </nav>
+
+  <h1 data-i18n="contact_title">Contacto</h1>
+  <p data-i18n="contact_text">¡Contáctame para más información!</p>
+
+  <form>
+    <label for="name" data-i18n="form_name">Nombre:</label>
+    <input type="text" id="name">
+
+    <label for="message" data-i18n="form_message">Mensaje:</label>
+    <textarea id="message"></textarea>
+
+    <button type="submit" data-i18n="form_submit">Enviar</button>
+  </form>
+</body>
+</html>
