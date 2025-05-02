@@ -1,0 +1,15 @@
+{
+    "nav": {
+      "navInicio": "Inicio",
+      "navContacto": "Contacto"
+    },
+    "index": {
+      "titulo": "Bienvenido",
+      "descripcion": "Este es un sitio web multilingüe."
+    },
+    "cookies": {
+      "text": "Este sitio usa cookies para mejorar la experiencia.",
+      "button": "Aceptar"
+    }
+  }
+  

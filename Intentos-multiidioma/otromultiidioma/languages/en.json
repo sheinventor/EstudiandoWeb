@@ -1,0 +1,33 @@
+{
+    "nav": {
+        "navInicio": "Home",
+        "navContacto": "Contact",
+        "navPortafolio": "Portfolio",
+        "navComics": "Comics",
+        "navDescargables": "Downloads"
+    },
+    "index": {
+        "titulo": "Welcome",
+        "descripcion": "This is a multilingual website."
+    },
+    "contact": {
+        "titulo": "Contact Us",
+        "descripcion": "Leave us a message and we will respond soon."
+    },
+    "portfolio": {
+        "titulo": "Portfolio",
+        "descripcion": "Explore our projects."
+    },
+    "comics": {
+        "titulo": "Comics Section",
+        "descripcion": "Discover our stories."
+    },
+    "downloads": {
+        "titulo": "Downloads",
+        "descripcion": "Here you can download our files."
+    },
+    "cookies": {
+        "text": "This site uses cookies to improve the experience.",
+        "button": "Accept"
+    }
+}

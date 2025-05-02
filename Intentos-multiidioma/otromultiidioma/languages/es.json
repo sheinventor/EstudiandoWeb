@@ -1,0 +1,33 @@
+{
+    "nav": {
+        "navInicio": "Inicio",
+        "navContacto": "Contacto",
+        "navPortafolio": "Portafolio",
+        "navComics": "Cómics",
+        "navDescargables": "Descargables"
+    },
+    "index": {
+        "titulo": "Bienvenido",
+        "descripcion": "Este es un sitio web multilingüe."
+    },
+    "contact": {
+        "titulo": "Contáctanos",
+        "descripcion": "Déjanos tu mensaje y te responderemos pronto."
+    },
+    "portfolio": {
+        "titulo": "Portafolio",
+        "descripcion": "Explora nuestros proyectos."
+    },
+    "comics": {
+        "titulo": "Sección de Cómics",
+        "descripcion": "Descubre nuestras historietas."
+    },
+    "downloads": {
+        "titulo": "Descargables",
+        "descripcion": "Aquí puedes descargar nuestros archivos."
+    },
+    "cookies": {
+        "text": "Este sitio usa cookies para mejorar la experiencia.",
+        "button": "Aceptar"
+    }
+}

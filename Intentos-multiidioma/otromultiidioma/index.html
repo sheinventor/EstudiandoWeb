@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="tituloPagina">Mi Sitio Multilingüe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="index">
+    <nav>
+        <a href="index.html" id="navInicio">Inicio</a>
+        <a href="contact.html" id="navContacto">Contacto</a>
+        <a href="portfolio.html" id="navPortafolio">Portafolio</a>
+        <a href="comics.html" id="navComics">Cómics</a>
+        <a href="downloads.html" id="navDescargables">Descargables</a>
+        <button data-lang="es">Español</button>
+        <button data-lang="en">English</button>
+        <button data-lang="fr">Français</button>
+    </nav>
+    <main>
+        <h1 id="titulo">Bienvenido</h1>
+        <p id="descripcion">Este es un sitio web multilingüe.</p>
+    </main>
+
+    <!-- Aviso de Cookies -->
+    <div id="cookieBanner">
+        <p id="cookieText">Este sitio usa cookies para mejorar la experiencia.</p>
+        <button onclick="acceptCookies()" id="cookieButton">Aceptar</button>
+    </div>
+
+    
+    <script src="cookies.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
