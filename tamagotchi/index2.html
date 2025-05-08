@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tamagotchi Virtual</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      text-align: center;
+      background-color: #e0f7fa;
+      transition: background-color 0.5s;
+    }
+    .tamagotchi-container {
+      background: white;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0px 8px 15px rgba(0,0,0,0.2);
+      display: inline-block;
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+    img {
+      width: 150px;
+      transition: transform 0.3s;
+    }
+    button {
+      margin: 5px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    button:hover {
+      background-color: #45a049;
+      transform: scale(1.05);
+    }
+    .bar {
+      width: 80%;
+      height: 20px;
+      border-radius: 10px;
+      background: #ddd;
+      margin: 10px auto;
+      overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%;
+      background: #4caf50;
+      width: 50%;
+      transition: width 0.3s, background-color 0.3s;
+    }
+    #message {
+      font-style: italic;
+      margin-top: 10px;
+      min-height: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="tamagotchi-container">
+    <h1>🐣 Tu Tamagotchi Virtual</h1>
+    <img id="pet" src="tamagotchi.png" alt="Mascota Virtual" />
+    <div class="bar"><div id="hungerBar" class="bar-fill"></div></div>
+    <p>Hambre</p>
+    <div class="bar"><div id="happinessBar" class="bar-fill"></div></div>
+    <p>Felicidad</p>
+    <div class="bar"><div id="energyBar" class="bar-fill"></div></div>
+    <p>Energía</p>
+
+    <button onclick="feedPet()">🍎 Alimentar</button>
+    <button onclick="playWithPet()">⚽ Jugar</button>
+    <button onclick="sleepPet()">🌙 Dormir</button>
+
+    <p id="message"></p>
+  </div>
+
+  <script>
+    let hunger = 50;
+    let happiness = 50;
+    let energy = 50;
+    const petImg = document.getElementById("pet");
+    const messageBox = document.getElementById("message");
+
+    function updateStats() {
+      document.getElementById("hungerBar").style.width = hunger + "%";
+      document.getElementById("happinessBar").style.width = happiness + "%";
+      document.getElementById("energyBar").style.width = energy + "%";
+
+      document.getElementById("hungerBar").style.backgroundColor = hunger > 70 ? "#f44336" : "#4caf50";
+      document.getElementById("happinessBar").style.backgroundColor = happiness < 30 ? "#f44336" : "#4caf50";
+      document.getElementById("energyBar").style.backgroundColor = energy < 30 ? "#f44336" : "#4caf50";
+
+      updateBackground();
+    }
+
+    function updateBackground() {
+      if (energy < 20) {
+        document.body.style.backgroundColor = "#ffe0b2";
+      } else if (happiness < 20) {
+        document.body.style.backgroundColor = "#f8bbd0";
+      } else {
+        document.body.style.backgroundColor = "#e0f7fa";
+      }
+    }
+
+    function randomMessage(messages) {
+      return messages[Math.floor(Math.random() * messages.length)];
+    }
+
+    function feedPet() {
+      hunger = Math.max(0, hunger - 15);
+      energy = Math.min(100, energy + 5);
+      petImg.src = "eat.png"; // cambia a imagen comiendo
+      messageBox.textContent = randomMessage(["¡Ñam ñam!", "¡Qué rico!", "Gracias por la comida!"]);
+      playSound("eat.mp3");
+      updateStats();
+    }
+
+    function playWithPet() {
+      happiness = Math.min(100, happiness + 15);
+      energy = Math.max(0, energy - 10);
+      petImg.src = "happy.png"; // cambia a imagen feliz
+      messageBox.textContent = randomMessage(["¡Yuju!", "¡Eso fue divertido!", "¡Juguemos más!"]);
+      playSound("laugh.mp3");
+      updateStats();
+    }
+
+    function sleepPet() {
+      energy = Math.min(100, energy + 25);
+      happiness = Math.max(0, happiness - 5);
+      hunger = Math.min(100, hunger + 5);
+      petImg.src = "sleep.png"; // cambia a imagen durmiendo
+      messageBox.textContent = randomMessage(["Zzz...", "Dulces sueños", "Hora de la siesta"]);
+      playSound("sleep.mp3");
+      updateStats();
+    }
+
+    function playSound(file) {
+      let audio = new Audio(file);
+      audio.play();
+    }
+
+    setInterval(() => {
+      hunger = Math.min(100, hunger + 5);
+      happiness = Math.max(0, happiness - 5);
+      energy = Math.max(0, energy - 5);
+      petImg.src = "tamagotchi.png"; // vuelve a imagen neutra
+      messageBox.textContent = "";
+      updateStats();
+    }, 6000);
+
+    updateStats();
+  </script>
+</body>
+</html>

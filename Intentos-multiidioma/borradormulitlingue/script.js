@@ -23,16 +23,16 @@ function changeLanguage(lang) {
             const page = document.body.getAttribute("data-page");
             if (data[page]) {
                 for (const key in data[page]) {
-                    document.getElementById(key)?.textContent = data[page][key];
+                    document.getElementById(key).textContent = data[page][key];
                 }
             }
 
             for (const key in data.nav) {
-                document.getElementById(key)?.textContent = data.nav[key];
+                document.getElementById(key).textContent = data.nav[key];
             }
 
-            document.getElementById("cookieText")?.textContent = data.cookies.text;
-            document.getElementById("cookieButton")?.textContent = data.cookies.button;
+            document.getElementById("cookieText").textContent = data.cookies.text;
+            document.getElementById("cookieButton").textContent = data.cookies.button;
         })
         .catch(error => console.error("Error cargando idioma:", error));
 }

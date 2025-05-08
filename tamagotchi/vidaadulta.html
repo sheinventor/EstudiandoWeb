@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simulador de Vida Adulta</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      background-color: #f0f0f0;
+      transition: background-color 0.5s;
+    }
+    .life-container {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0px 8px 20px rgba(0,0,0,0.1);
+      display: inline-block;
+      max-width: 400px;
+      margin-top: 40px;
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+    img {
+      width: 150px;
+      margin-bottom: 20px;
+    }
+    button {
+      margin: 5px;
+      padding: 10px 20px;
+      font-size: 14px;
+      background-color: #1976D2;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #1565C0;
+    }
+    .bar {
+      width: 100%;
+      height: 18px;
+      border-radius: 8px;
+      background: #ccc;
+      margin: 10px auto;
+      overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%;
+      width: 50%;
+      background-color: #4caf50;
+      transition: width 0.3s;
+    }
+    #message {
+      font-style: italic;
+      margin-top: 15px;
+      min-height: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="life-container">
+    <h1>🧑‍💼 Vida Adulta Virtual</h1>
+    <img id="avatar" src="adult_neutral.png" alt="Avatar adulto" />
+    
+    <div class="bar"><div id="stressBar" class="bar-fill"></div></div>
+    <p>Estrés</p>
+    <div class="bar"><div id="healthBar" class="bar-fill"></div></div>
+    <p>Salud</p>
+    <div class="bar"><div id="socialBar" class="bar-fill"></div></div>
+    <p>Red Social</p>
+
+    <button onclick="work()">💻 Trabajar</button>
+    <button onclick="goOut()">🎉 Socializar</button>
+    <button onclick="sleep()">😴 Dormir</button>
+    <button onclick="eatWell()">🥗 Comer bien</button>
+
+    <p id="message"></p>
+  </div>
+
+  <script>
+    let stress = 40;
+    let health = 60;
+    let social = 50;
+
+    const avatar = document.getElementById("avatar");
+    const message = document.getElementById("message");
+
+    function updateStats() {
+      document.getElementById("stressBar").style.width = stress + "%";
+      document.getElementById("healthBar").style.width = health + "%";
+      document.getElementById("socialBar").style.width = social + "%";
+
+      document.getElementById("stressBar").style.backgroundColor = stress > 70 ? "#e53935" : "#4caf50";
+      document.getElementById("healthBar").style.backgroundColor = health < 30 ? "#e53935" : "#4caf50";
+      document.getElementById("socialBar").style.backgroundColor = social < 30 ? "#e53935" : "#4caf50";
+
+      avatar.src = stress > 80 ? "adult_stressed.png" :
+                   health < 30 ? "adult_sick.png" :
+                   social < 20 ? "adult_lonely.png" :
+                   "adult_neutral.png";
+    }
+
+    function work() {
+      stress = Math.min(100, stress + 20);
+      health = Math.max(0, health - 10);
+      social = Math.max(0, social - 5);
+      message.textContent = "Otro día, otro dólar 💼";
+      updateStats();
+    }
+
+    function goOut() {
+      stress = Math.max(0, stress - 15);
+      social = Math.min(100, social + 20);
+      health = Math.max(0, health - 5);
+      message.textContent = "Salir con amigos: recarga social 🎉";
+      updateStats();
+    }
+
+    function sleep() {
+      stress = Math.max(0, stress - 20);
+      health = Math.min(100, health + 10);
+      message.textContent = "Dormiste como un tronco 😴";
+      updateStats();
+    }
+
+    function eatWell() {
+      health = Math.min(100, health + 15);
+      message.textContent = "Comiste una ensalada... por elección propia 🥗";
+      updateStats();
+    }
+
+    setInterval(() => {
+      stress = Math.min(100, stress + 5);
+      health = Math.max(0, health - 3);
+      social = Math.max(0, social - 4);
+      message.textContent = "";
+      updateStats();
+    }, 7000);
+
+    updateStats();
+  </script>
+</body>
+</html>
