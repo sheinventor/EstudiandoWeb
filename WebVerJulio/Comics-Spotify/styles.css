@@ -1,0 +1,126 @@
+body {
+  font-family: 'Titillium Web', sans-serif;
+  background: #fff;
+  text-align: center;
+  margin: 0;
+}
+
+#comic-container {
+  position: relative;
+  max-width: 600px;
+  margin: auto;
+}
+
+#comic-img {
+  width: 100%;
+  height: auto;
+}
+
+.selectors {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+#comic-selector, #language {
+  padding: 6px 10px;
+  font-size: 16px;
+  border-radius: 6px;
+}
+
+.text-overlay {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  font-size: 14px;
+  max-width: 80%;
+  word-wrap: break-word;
+  box-sizing: border-box;
+}
+
+.controls, .recent-comics {
+  margin: 20px;
+}
+
+.recent-comic {
+  width: 80px;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.nav-button {
+  width: 50px;
+  height: auto;
+  margin: 5px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.nav-button:hover {
+  transform: scale(1.1);
+}
+
+.footer-box {
+  background-color: #fff0f5;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.footer-box h2 {
+  color: #222;
+}
+
+.footer-box p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.footer-link {
+  display: inline-block;
+  color: white;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.footer-link.instagram { background-color: #e4405f; }
+.footer-link.youtube { background-color: #ff0000; }
+.footer-link.tiktok { background-color: #010101; }
+
+
+
+.more-comics-text {
+  font-size: 16px;
+  margin: 20px 0 10px;
+  font-weight: bold;
+}
+
+#music-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.soundcloud-player {
+  width: 100%;
+  max-width: 350px;
+  height: 120px;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.music-text {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 10px;
+  font-size: 1.2em;
+}

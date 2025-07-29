@@ -1,0 +1,37 @@
+{
+  "title": "Otro Comic",
+  "pages":6,
+  "dialogs": [
+
+{ "page": 1, "lang": "es", "x": 50, "y": 0, "text": "Siempre hablabas de aquel lugar, con amor y mucho orgullo en tus ojos", "track": "1xhWXmGYDYNhbWXIrZvhDU"},
+{ "page": 1, "lang": "fr", "x": 50, "y": 0, "text": "Tu parlais toujours de cet endroit, avec de l'amour et beaucoup de fierté dans les yeux", "track": "1xhWXmGYDYNhbWXIrZvhDU"},
+{ "page": 1, "lang": "en", "x": 50, "y": 0, "text": "You always spoke of that place, with love and pride in your eyes", "track": "1xhWXmGYDYNhbWXIrZvhDU"},
+
+
+{ "page": 2, "lang": "es", "x": 50, "y": 0, "text": "La adversidad llegó y no logramos atravesarla juntos" },
+{ "page": 2, "lang": "fr", "x": 50, "y": 0, "text": "L’adversité est arrivée, et nous n’avons pas pu la surmonter ensemble" },
+{ "page": 2, "lang": "en", "x": 50, "y": 0, "text": "Adversity came, and we couldn’t get through it together" },
+
+
+{ "page": 2, "lang": "es", "x": 70, "y": 80, "text": "y mi camino cambió" },
+{ "page": 2, "lang": "fr", "x": 70, "y": 80, "text": "et mon chemin a changé" },
+{ "page": 2, "lang": "en", "x": 70, "y": 80, "text": "and my path changed" },
+
+
+{ "page": 3, "lang": "es", "x": 50, "y": 0, "text": "Ahora me enfoco en mí, en encontrarme" },
+{ "page": 3, "lang": "fr", "x": 50, "y": 0, "text": "Maintenant je me concentre sur moi, sur me retrouver" },
+{ "page": 3, "lang": "en", "x": 50, "y": 0, "text": "Now I focus on myself, on finding who I am" },
+
+
+{ "page": 4, "lang": "es", "x": 50, "y": 0, "text": "Hoy llegué al lugar donde vivían tus historias" },
+{ "page": 4, "lang": "fr", "x": 50, "y": 0, "text": "Aujourd’hui je suis arrivé à l’endroit où vivaient tes histoires" },
+{ "page": 4, "lang": "en", "x": 50, "y": 0, "text": "Today I arrived at the place where your stories lived" },
+
+
+{ "page": 4, "lang": "es", "x": 50, "y": 30, "text": "Y es tan magnífico como siempre me lo compartiste" },
+{ "page": 4, "lang": "fr", "x": 50, "y": 30, "text": "Et c’est aussi magnifique que tu me l’as toujours décrit" },
+{ "page": 4, "lang": "en", "x": 50, "y": 30, "text": "And it’s just as magnificent as you always told me" }
+
+
+  ]
+}

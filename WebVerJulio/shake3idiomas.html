@@ -84,7 +84,38 @@
       50% { transform: rotate(-5deg); }
       75% { transform: rotate(5deg); }
       100% { transform: rotate(0deg); }
+    }  
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 14px;
+      background-color: #2a0f2a;
+      color: white;
     }
+
+    .footer-buttons {
+      margin-top: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .footer-btn {
+      background-color: white;
+      color: #3b163b;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .footer-btn:hover {
+      background-color: #ff80c0;
+      color: white;
+    }
+    
   </style>
 </head>
 
@@ -100,18 +131,23 @@
 
   <main>
     <div class="menu">
-      <button data-i18n="projects">Proyectos</button>
-      <button data-i18n="comics">Cómics</button>
-      <button data-i18n="library">Biblioteca</button>
-      <button data-i18n="downloads">Descargas</button>
-      <button data-i18n="tutorials">Tutoriales</button>
-      <button data-i18n="contact">Contacto</button>
+      <button data-i18n="comics" onclick="location.href='./Comics-Spotify/index.html'">Cómics</button>
+      <button data-i18n="downloads"onclick="location.href='./Biblioteca-Sheinventor/index.html'">Descargas</button>
     </div>
 
     <div class="foco-container">
       <img id="foco" src="Foco-Logo.png" alt="Foco">
     </div>
   </main>
+
+<footer id="footer">
+  <p data-i18n="footerText">¿Quieres apoyar este proyecto? Invítame un café ☕ o compra merch 🎁</p>
+  <div class="footer-buttons">
+    <a href="https://ko-fi.com/tu_usuario" target="_blank" class="footer-btn" data-i18n="donate">Donar en Ko-fi</a>
+    <a href="https://tu_tienda.com" target="_blank" class="footer-btn" data-i18n="shop">Ver Merch</a>
+    <a href="mailto:sheinventor@gmail.com" class="footer-btn" data-i18n="contactMe">Contáctame</a>
+  </div>
+</footer>
 
   <script>
     const foco = document.getElementById('foco');

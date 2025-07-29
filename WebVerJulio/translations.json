@@ -1,0 +1,27 @@
+{
+    "es": {
+      "comics": "Cómics",
+      "downloads": "Descargas",
+      "footerText": "¿Quieres apoyar este proyecto? Invítame un café ☕ o compra merch 🎁",
+      "donate": "Donar en Ko-fi",
+      "shop": "Ver Merch",
+      "contactMe": "Contáctame"
+    },
+    "en": {
+      "comics": "Comics",
+      "downloads": "Downloads",
+      "footerText": "Want to support this project? Buy me a coffee ☕ or grab some merch 🎁",
+      "donate": "Donate on Ko-fi",
+      "shop": "See Merch",
+      "contactMe": "Contact me"
+    },
+    "fr": {
+      "comics": "Bandes dessinées",
+      "downloads": "Téléchargements",
+      "footerText": "Vous voulez soutenir ce projet ? Offrez-moi un café ☕ ou achetez du merch 🎁",
+      "donate": "Faire un don sur Ko-fi",
+      "shop": "Voir le Merch",
+      "contactMe": "Contactez-moi"
+    }
+  }
+  
