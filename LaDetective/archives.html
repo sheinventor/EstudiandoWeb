@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Archives secrètes</title>
+  <title>Archivos secretos</title>
   <style>
     body {
       font-family: 'Courier New', Courier, monospace;
@@ -57,51 +57,75 @@
     .hidden {
       display: none;
     }
+    .hint-btn {
+      background-color: #222;
+      color: #ffec8b;
+      padding: 0.4em 1em;
+      border: 1px solid #555;
+      cursor: pointer;
+      margin-top: 0.5em;
+      font-size: 0.9em;
+    }
+    .hint-btn:hover {
+      background-color: #333;
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Archives secrètes</h1>
-    <p>Ces documents ont été récupérés dans les affaires du biologiste disparu. Ouvre l’œil, de nombreux indices s’y cachent...</p>
+    <h1>Archivos secretos</h1>
+    <p>Estos documentos te serviran de ayuda en para resolver el caso. Abre bien los ojos: muchos indicios se esconden en ellos...</p>
 
+    <!-- Documento 1 -->
     <div class="doc">
-      <h2>Document 1 : Rapport scientifique</h2>
-      <img src="carte-od.png" alt="Document 1">
-      <p><strong>Indice 1 :</strong> Dans ce document, surligne en rouge, on peut lire une lettre : E</p>
+      <h2>Documento 1: Tarjeta de identidad de Magenta</h2>
+      <img src="carte-od.png" alt="Documento 1">
+      <button class="hint-btn" onclick="toggleHint('hint1')">💡 ¿Necesitas ayuda?</button>
+      <p id="hint1" class="hidden"><strong>Indicio 1:</strong> En este documento, subrayado en rojo, se puede leer la letra: E.</p>
     </div>
 
+    <!-- Documento 2 -->
     <div class="doc">
-      <h2>Document 2 : Ticket avion François</h2>
-      <img src="ticketavion-02.png" alt="Document 2">
-      <p><strong>Indice 2 :</strong> Sur le ticket, un mot commence par “CO”. Quelle émotion provoque-t-il ?</p>
+      <h2>Documento 2: Boleto de avión de François</h2>
+      <img src="ticketavion-02.png" alt="Documento 2">
+      <button class="hint-btn" onclick="toggleHint('hint2')">💡 ¿Necesitas ayuda?</button>
+      <p id="hint2" class="hidden"><strong>Indicio 2:</strong> En el boleto, subrayado en rojo, se pueden leer las letras: CO.</p>
     </div>
 
+    <!-- Documento 3 -->
     <div class="doc">
-      <h2>Document 3 : Carte postale</h2>
-      <img src="DeepSea1.png" alt="Document 3">
-      <p><strong>Indice 3 :</strong> Dans la postale, les lettres “LOGIE”.</p>
+      <h2>Documento 3: Tarjeta postal</h2>
+      <img src="DeepSea1.png" alt="Documento 3">
+      <button class="hint-btn" onclick="toggleHint('hint3')">💡 ¿Necesitas ayuda?</button>
+      <p id="hint3" class="hidden"><strong>Indicio 3:</strong> En la postal, subrayado en rojo, se pueden leer las letras: LOGIE.</p>
     </div>
 
+    <!-- Enigma -->
     <div class="enigma">
-      <h2>Résous l’énigme</h2>
-      <p>Assemble les morceaux pour trouver le mot-clé et tape-le ici :</p>
-      <input type="text" id="mot" class="input" placeholder="Mot-clé...">
-      <button class="btn" onclick="verifierMot()">Valider</button>
+      <h2>Resuelve el enigma</h2>
+      <p>Une las partes para encontrar la palabra clave y escríbela aquí:</p>
+      <input type="text" id="mot" class="input" placeholder="Palabra clave...">
+      <button class="btn" onclick="verificarMot()">Validar</button>
 
       <div id="message" class="hidden">
-        <p>Bravo ! Tu as trouvé le mot-clé secret : <strong>écologie</strong>.</p>
-        <p>Retourne à la <a href="index.html" style="color:#6ac6ff;">page principale</a> pour continuer ton enquête.</p>
+        <p>¡Bravo! Has encontrado la palabra clave secreta: <strong>ecología</strong>.</p>
+        <p>Vuelve a la <a href="index.html" style="color:#6ac6ff;">página principal</a> para continuar tu investigación.</p>
       </div>
     </div>
   </div>
 
   <script>
-    function verifierMot() {
+    function toggleHint(id) {
+      const el = document.getElementById(id);
+      el.classList.toggle('hidden');
+    }
+
+    function verificarMot() {
       const mot = document.getElementById('mot').value.trim().toLowerCase();
-      if (mot === 'ecologie' || mot === 'écologie') {
+      if (mot === 'ecologia' || mot === 'ecología') {
         document.getElementById('message').classList.remove('hidden');
       } else {
-        alert("Ce n'est pas encore le bon mot... Regarde bien les indices !");
+        alert("Aún no es la palabra correcta... ¡Mira bien los indicios!");
       }
     }
   </script>

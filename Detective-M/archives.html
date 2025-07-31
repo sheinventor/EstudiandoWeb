@@ -57,31 +57,50 @@
     .hidden {
       display: none;
     }
+    .hint-btn {
+      background-color: #222;
+      color: #ffec8b;
+      padding: 0.4em 1em;
+      border: 1px solid #555;
+      cursor: pointer;
+      margin-top: 0.5em;
+      font-size: 0.9em;
+    }
+    .hint-btn:hover {
+      background-color: #333;
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>Archives secrètes</h1>
-    <p>Ces documents ont été récupérés dans les affaires du biologiste disparu. Ouvre l’œil, de nombreux indices s’y cachent...</p>
+    <p>Ces documents seront ton guide pour résoudre le cas. Ouvre l’œil, de nombreux indices s’y cachent...</p>
 
+    <!-- Documento 1 -->
     <div class="doc">
       <h2>Document 1 : Rapport scientifique</h2>
       <img src="carte-od.png" alt="Document 1">
-      <p><strong>Indice 1 :</strong> Dans ce document, surligne en rouge, on peut lire une lettre : E</p>
+      <button class="hint-btn" onclick="toggleHint('hint1')">💡 Besoin d'aide ?</button>
+      <p id="hint1" class="hidden"><strong>Indice 1 :</strong> Dans ce document, surligne en rouge, on peut lire une lettre : E</p>
     </div>
 
+    <!-- Documento 2 -->
     <div class="doc">
       <h2>Document 2 : Ticket avion François</h2>
       <img src="ticketavion-02.png" alt="Document 2">
-      <p><strong>Indice 2 :</strong> Sur le ticket, un mot commence par “CO”. Quelle émotion provoque-t-il ?</p>
+      <button class="hint-btn" onclick="toggleHint('hint2')">💡 Besoin d'aide ?</button>
+      <p id="hint2" class="hidden"><strong>Indice 2 :</strong> Sur le ticket, surligne en rouge, on peut lire les letres CO </p>
     </div>
 
+    <!-- Documento 3 -->
     <div class="doc">
       <h2>Document 3 : Carte postale</h2>
       <img src="DeepSea1.png" alt="Document 3">
-      <p><strong>Indice 3 :</strong> Dans la postale, les lettres “LOGIE”.</p>
+      <button class="hint-btn" onclick="toggleHint('hint3')">💡 Besoin d'aide ?</button>
+      <p id="hint3" class="hidden"><strong>Indice 3 :</strong> Dans la postale, surligne en rouge, on peut lire les letres LOGIE.</p>
     </div>
 
+    <!-- Enigma -->
     <div class="enigma">
       <h2>Résous l’énigme</h2>
       <p>Assemble les morceaux pour trouver le mot-clé et tape-le ici :</p>
@@ -96,6 +115,11 @@
   </div>
 
   <script>
+    function toggleHint(id) {
+      const el = document.getElementById(id);
+      el.classList.toggle('hidden');
+    }
+
     function verifierMot() {
       const mot = document.getElementById('mot').value.trim().toLowerCase();
       if (mot === 'ecologie' || mot === 'écologie') {
