@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expediente clasificado: Abismos</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Courier New', Courier, monospace;
+      background-color: #0a0a0a;
+      color: #e0e0e0;
+      background-image: url('papier-texture.png'); /* textura papel viejo */
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+    .container {
+      padding: 4em 2em;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    h1, h2 {
+      text-transform: uppercase;
+    }
+    .btn {
+      background-color: #083b4c;
+      color: white;
+      padding: 1em 2em;
+      border: none;
+      cursor: pointer;
+      font-size: 1.2em;
+      margin-top: 2em;
+    }
+    .secret-input {
+      margin-top: 2em;
+      padding: 0.5em;
+      font-size: 1em;
+    }
+    .hidden {
+      display: none;
+    }
+    .fade {
+      animation: fadeIn 2s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    a {
+      color: #6ac6ff;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container fade">
+    <h1>Expediente clasificado</h1>
+    <h2>El caso de la minería en los abismos</h2>
+    <p>Una investigación de la detective M</p>
+
+    <p>
+      Bienvenido, agente. Esta investigación te sumerge en las misteriosas profundidades del océano, 
+      en busca de un biólogo desaparecido y de una verdad que algunos quieren mantener enterrada…
+    </p>
+
+    <p><strong>Introduce el código secreto para continuar:</strong></p>
+    <p>
+      ¿Aún no tienes el código? Explora las 
+      <a href="archives.html">archivos</a> para encontrar pistas ocultas…
+    </p>
+    <input type="text" id="code" placeholder="Código secreto..." class="secret-input">
+    <br>
+    <button onclick="verificarCodigo()" class="btn">Validar</button>
+
+    <div id="suite" class="hidden">
+      <p>Código aceptado. Ahora puedes acceder a la proyección.</p>
+      <a href="projection.html"><button class="btn">Entrar en los abismos</button></a>
+    </div>
+  </div>
+
+  <script>
+    function verificarCodigo() {
+      const code = document.getElementById('code').value.trim().toLowerCase();
+      if(code === 'ecologia') {
+        document.getElementById('suite').classList.remove('hidden');
+      } else {
+        alert('Código incorrecto. Intenta de nuevo o visita los archivos.');
+      }
+    }
+  </script>
+</body>
+</html>

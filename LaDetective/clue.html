@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Pista secreta – Cian</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: 'Courier New', Courier, monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      height: 100vh;
+    }
+
+    #clueImage {
+      margin-top: 2rem;
+      width: 200px; /* Ajusta el tamaño de la imagen */
+      display: block;
+    }
+
+    button {
+      margin-top: 1.5rem;
+      padding: 0.8rem 1.5rem;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 10px;
+      background-color: white;
+      color: black;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #ddd;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>🧩 Expediente complementario: Cian</h2>
+  <p>Cian, el hermano pequeño de Magenta, podría haber descubierto algo...<br>
+  Gracias por seguir investigando con nosotros.</p>
+
+  <!-- Imagen que se descargará 
+  <img id="clueImage" src="clue.png" alt="Pista secreta" /> -->
+
+  <button onclick="downloadImage()">Descargar la imagen secreta</button>
+
+  <script>
+    // Función para descargar la imagen clue.png
+    function downloadImage() {
+      const link = document.createElement('a');
+      link.href = 'clue.png';  // Ruta de la imagen en la carpeta
+      link.download = 'clue.png'; // Nombre con el que se descargará
+      link.click();
+    }
+  </script>
+
+</body>
+
+<footer>
+  <div style="background-color: #000000; padding: 20px; border-radius: 12px; text-align: center; font-family: sans-serif;">
+    <h2 style="color: #ffffff;">¿Te ha gustado esta experiencia?</h2>
+    <p style="font-size: 16px; margin-bottom: 20px;">Descubre otros proyectos de la familia SheInventor 🌈</p>
+    <a href="https://www.instagram.com/sheinventor" target="_blank" style="background-color: #e4405f; color: white; padding: 10px 20px; margin: 5px; border-radius: 8px; text-decoration: none;">Instagram</a>
+    <a href="https://www.youtube.com/@SheInventor" target="_blank" style="background-color: #ff0000; color: white; padding: 10px 20px; margin: 5px; border-radius: 8px; text-decoration: none;">YouTube</a>
+    <a href="https://www.tiktok.com/@sheinventor" target="_blank" style="background-color: #010101; color: white; padding: 10px 20px; margin: 5px; border-radius: 8px; text-decoration: none;">TikTok</a>
+    <p style="margin-top: 20px;">💌 ¿Quieres colaborar? <a href="mailto:sheinventor11@gmail.com" style="color: #0077cc; text-decoration: underline;">Escríbeme aquí</a></p>
+  </div>
+</footer>
+</html>

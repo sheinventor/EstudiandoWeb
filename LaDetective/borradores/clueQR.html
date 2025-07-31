@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Piste secrète – Cian</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: 'Courier New', Courier, monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      height: 100vh;
+    }
+
+    #qrcode {
+      margin-top: 2rem;
+    }
+
+    button {
+      margin-top: 1.5rem;
+      padding: 0.8rem 1.5rem;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 10px;
+      background-color: white;
+      color: black;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #ddd;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>🧩 Dossier complémentaire : Cian</h2>
+  <p>Cian, le petit frère de Magenta, aurait découvert quelque chose...<br>
+  Merci de continuer l’enquête avec nous.</p>
+
+  <div id="qrcode"></div>
+
+  <button onclick="downloadQRCode()">Télécharger le code secret</button>
+
+  <!-- Librería QRCode.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script>
+    // Generar número aleatorio y mensaje
+    const randomId = Math.floor(100000 + Math.random() * 900000);
+    const message = `Merci d’avoir suivi l’enquête. Code secret : ${randomId}`;
+
+    // Crear QR
+    const qrcode = new QRCode(document.getElementById("qrcode"), {
+      text: message,
+      width: 200,
+      height: 200,
+      colorDark: "#ffffff",
+      colorLight: "#000000",
+      correctLevel: QRCode.CorrectLevel.H
+    });
+
+    // Descargar imagen QR
+    function downloadQRCode() {
+      const qrCanvas = document.querySelector('#qrcode canvas');
+      const imgData = qrCanvas.toDataURL("image/png");
+
+      const link = document.createElement('a');
+      link.href = imgData;
+      link.download = `code_secret_${randomId}.png`;
+      link.click();
+    }
+  </script>
+</body>
+</html>
